@@ -82,9 +82,11 @@ function Skills() {
 
   return (
     <section id="skills" className="scroll-mt-24 ">
-      <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-        Skills
-      </h2>
+      <Card>
+        <h1 className="text-3xl font-bold text-center  text-gray-800 dark:text-white">Skills</h1>
+      </Card>
+      <br />
+    
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {categories.map((category, idx) => (
