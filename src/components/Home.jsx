@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-
+// Home.jsx
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import me from "../assets/me/65887.jpg";
@@ -53,8 +53,8 @@ function Home() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <Card className="w-[320px] h-[520px]">
-            {/* 👇 Animate เฉพาะเนื้อหาภายใน */}
+<Card className="w-full h-auto md:h-[520px]">
+{/* 👇 Animate เฉพาะเนื้อหาภายใน */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
