@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import me from "../assets/me/65887.jpg";
+import jastel from "../assets/logoCompany/jastel.png";
+import vansales from "../assets/logoCompany/vansales.png"; 
+import nsm from "../assets/logoCompany/nsm.png";
 
 import "../assets/styles/Home.css";
 import Card from "./Card";
@@ -59,7 +63,7 @@ function Home() {
             >
               <div className="w-44 h-44 mb-4 rounded-full overflow-hidden border-4 border-orange-500">
                 <img
-                  src="/me/65887.jpg"
+                  src={me}
                   alt="รูปโปรไฟล์"
                   className="w-full h-full object-cover"
                 />
@@ -137,17 +141,17 @@ function Home() {
                     {/* 🎯 รอบที่ 1 */}
                     <div className="flex gap-16">
                       <img
-                        src="/logoCompany/NSM.png"
+                        src={nsm}
                         alt="NSM"
                         className="w-[100px] h-[100px]"
                       />
                       <img
-                        src="/logoCompany/vansales.png"
+                        src={vansales}
                         alt="Vansales"
                         className="w-[300px] h-[100px]"
                       />
                       <img
-                        src="/logoCompany/jastel.png"
+                        src={jastel}
                         alt="Jastel"
                         className="w-[280px] h-[100px]"
                       />

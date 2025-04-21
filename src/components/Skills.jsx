@@ -1,54 +1,78 @@
 /* eslint-disable no-unused-vars */
 import Card from "./Card";
-import { motion } from "framer-motion";
+import { m, motion } from "framer-motion";
+import bun from "../assets/icons/Bun.png";
+import c from "../assets/icons/c-program-icon.png";
+import elysia from "../assets/icons/ElysiaJS.png";
+import googleCloud from "../assets/icons/google-cloud-icon.png";
+import git from "../assets/icons/git-icon.png";
+import html from "../assets/icons/icons8-html-48.png";
+import javascript from "../assets/icons/icons8-javascript-48.png";
+import linux from "../assets/icons/icons8-linux-48.png";
+import mongodb from "../assets/icons/icons8-mongodb-48.png";
+import mysql from "../assets/icons/icons8-mysql-48.png";
+import nodejs from "../assets/icons/icons8-node-js-48.png";
+import postman from "../assets/icons/postman-icon.png";
+import python from "../assets/icons/icons8-python-48.png";
+import react from "../assets/icons/icons8-react-48.png";
+import typescript from "../assets/icons/icons8-typescript-48.png";
+import ubuntu from "../assets/icons/ubuntu-color-icon.png";
+import vue from "../assets/icons/vue-js-icon.png";
+import aws from "../assets/icons/icons8-aws-48.png";
+import docker from "../assets/icons/icons8-docker-48.png";
+import k8s from "../assets/icons/icons8-kubernetes-48.png";
+import vsCode from "../assets/icons/icons8-vs-code-48.png";
+import arduino from "../assets/icons/icons8-arduino-48.png";
+import css from "../assets/icons/icons8-css-48.png";
+
 
 function Skills() {
-  const categories = [
+  const categories = [  
     {
       title: "🧠 Computer Languages",
       side: "left", // 👈 เพิ่มตรงนี้
       skills: [
-        { name: "JavaScript", img: "/icon/icons8-javascript-48.png" },
-        { name: "HTML", img: "/icon/icons8-html-48.png" },
-        { name: "CSS", img: "/icon/icons8-css-48.png" },
-        { name: "TypeScript", img: "/icon/icons8-typescript-48.png" },
-        { name: "Python", img: "/icon/icons8-python-48.png" },
-        { name: "C", img: "/icon/c-program-icon.png" },
+        { name: "JavaScript", img: javascript },
+        { name: "HTML", img: html },
+        { name: "CSS", img: css },
+        { name: "TypeScript", img: typescript },
+        { name: "Python", img: python },
+        { name: "C", img: c },
       ],
     },
     {
       title: "⚙️ Frameworks & Runtime",
       side: "right",
       skills: [
-        { name: "React", img: "/icon/icons8-react-48.png" },
-        { name: "Vue", img: "/icon/vue-js-icon.png" },
-        { name: "Node.js", img: "/icon/icons8-node-js-48.png" },
-        { name: "Bun", img: "/icon/Bun.png" },
-        { name: "Arduino", img: "/icon/icons8-arduino-48.png" },
-        { name: "ElysiaJS", img: "/icon/ElysiaJS.png" },
+        { name: "React", img: react },
+        { name: "Vue", img: vue },
+        { name: "Node.js", img: nodejs },
+        { name: "Bun", img: bun},
+        { name: "Arduino", img:  arduino },
+        { name: "ElysiaJS", img: elysia },
       ],
     },
     {
       title: "🗄 Databases",
       side: "left", // 👈 เพิ่มตรงนี้
       skills: [
-        { name: "MongoDB", img: "/icon/icons8-mongodb-48.png" },
-        { name: "MySQL", img: "/icon/icons8-mysql-48.png" },
+        { name: "MongoDB", img: mongodb },
+        { name: "MySQL", img: mysql},
       ],
     },
     {
       title: "🧰 Tools & Platforms",
       side: "right",
       skills: [
-        { name: "Docker", img: "/icon/icons8-docker-48.png" },
-        { name: "Kubernetes", img: "/icon/icons8-kubernetes-48.png" },
-        { name: "AWS Cloud", img: "/icon/icons8-aws-48.png" },
-        { name: "Linux", img: "/icon/icons8-linux-48.png" },
-        { name: "VS Code", img: "/icon/icons8-vs-code-48.png" },
-        { name: "Post Man", img: "/icon/postman-icon.png" },
-        { name: "Ubuntu", img: "/icon/ubuntu-color-icon.png" },
-        { name: "Google Cloud", img: "/icon/google-cloud-icon.png" },
-        { name: "Git", img: "/icon/git-icon.png" },
+        { name: "Docker", img: docker },
+        { name: "Kubernetes", img: k8s },
+        { name: "AWS Cloud", img: aws },
+        { name: "Linux", img: linux },
+        { name: "VS Code", img: vsCode },
+        { name: "Post Man", img: postman },
+        { name: "Ubuntu", img: ubuntu },
+        { name: "Google Cloud", img: googleCloud },
+        { name: "Git", img: git },
 
       ],
     },

@@ -2,36 +2,44 @@
 
 import Card from "./view/Card-certi";
 import { motion } from "framer-motion";
+import GenAI_in_Business_Discover_the_Possibilities from "../assets/certificates/GenAI_in_Business_Discover_the_Possibilities.pdf";
+import Fundamentals_of_Generative_AI_for_Beginners from "../assets/certificates/Fundamentals_of_Generative_AI_for_Beginners.pdf";
+import Introduction_to_Microsoft_365_Copilot from "../assets/certificates/Introduction_to_Microsoft_365_Copilot.pdf";
+import Generative_AI_Impact_Considerations_and_Ethical_Issues from "../assets/certificates/Generative_AI_Impact,_Considerations,_and_Ethical_Issues.pdf";
+import Migrating_to_the_AWS_Cloud from "../assets/certificates/Migrating_to_the_AWS_Cloud.pdf";
+import AWS_Cloud_Technical_Essentials from "../assets/certificates/AWS_Cloud_Technical_Essentials.pdf";
+import User_Awareness_and_Education_for_Generative_AI from "../assets/certificates/User_Awareness_and_Education_for_Generative_AI.pdf";
+
 
 function Certificates() {
   const certificates = [
     {
       title: "AI for Business",
-      file: "/Certificates/GenAI_in_Business_Discover_the_Possibilities.pdf",
+      file: GenAI_in_Business_Discover_the_Possibilities,
     },
     {
       title: "AWS Cloud Essentials",
-      file: "/Certificates/AWS_Cloud_Technical_Essentials.pdf",
+      file: AWS_Cloud_Technical_Essentials,
     },
     {
       title: "AI Fundamentals",
-      file: "/Certificates/Fundamentals_of_Generative_AI_for_Beginners.pdf",
+      file:   Fundamentals_of_Generative_AI_for_Beginners,
     },
     {
       title: "Microsoft 365 Copilot",
-      file: "/Certificates/Introduction_to_Microsoft_365_Copilot.pdf",
+      file:  Introduction_to_Microsoft_365_Copilot,
     },
     {
       title: "Generative AI Impact",
-      file: "/Certificates/Generative_AI_Impact,_Considerations,_and_Ethical_Issues.pdf",
+      file: Generative_AI_Impact_Considerations_and_Ethical_Issues,
     },
     {
       title: "Migrate to AWS Cloud",
-      file: "/Certificates/Migrating_to_the_AWS_Cloud.pdf",
+      file: Migrating_to_the_AWS_Cloud,
     },
     {
       title: "AI User Awareness",
-      file: "/Certificates/User_Awareness_and_Education_for_Generative_AI.pdf",
+      file: User_Awareness_and_Education_for_Generative_AI,
     },
   ];
 
