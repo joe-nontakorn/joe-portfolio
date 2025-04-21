@@ -74,6 +74,7 @@ function Home() {
               <p className="text-gray-600 dark:text-gray-300 mt-1 text-center">
                 Dev / IT Engineer <br />
                 Age : 26 years old <br />
+                Nationality : Thai <br />
                 Tel : 090-9319022 <br />
                 Email : nontakorn.joe01@gmail.com
               </p>

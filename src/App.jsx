@@ -18,7 +18,6 @@ function App() {
         <Home />
         <br />
         <br />
-        <br />
         <About />
         <br />
         <br />
@@ -27,12 +26,15 @@ function App() {
         <br />
         <br />
         <br />
+        <br />
+        <br />
         <Certificates />
         <br />
         <br />
         <br />
-        <Contact />
         <br />
+        <br />
+        <Contact />
         <br />
         <br />
       </main>

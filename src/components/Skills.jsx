@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Card from "./Card";
-import { m, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import bun from "../assets/icons/Bun.png";
 import c from "../assets/icons/c-program-icon.png";
 import elysia from "../assets/icons/ElysiaJS.png";
@@ -83,7 +83,7 @@ function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 ">
       <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-        ทักษะของฉัน
+        Skills
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
