@@ -27,7 +27,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header-inner">
-        <h1 className="logo">DEVELOPER</h1>
+        <h1 className="logo">JOE</h1>
         <nav>
           <ul className="nav-list">
             {[
