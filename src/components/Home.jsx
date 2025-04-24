@@ -7,7 +7,7 @@ import jastel from "../assets/logoCompany/jastel.png";
 import vansales from "../assets/logoCompany/vansales.png";
 import nsm from "../assets/logoCompany/nsm.png";
 
-import "../assets/styles/Home.css";
+// import "../assets/styles/Home.css";
 import Card from "./Card";
 
 function Home() {
@@ -54,7 +54,7 @@ function Home() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="w-full md:w-auto" // ✅ เพิ่ม class นี้ให้ container ของ Card
         >
-          <Card className="w-full max-w-[350px] md:max-w-[320px] h-auto md:h-[520px] text-center text-gray-800 dark:text-white">
+          <Card className=" md:h-[520px] text-center text-gray-800 dark:text-white">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}

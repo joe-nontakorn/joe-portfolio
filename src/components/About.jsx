@@ -55,13 +55,13 @@ function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="text-3xl font-bold text-center  text-gray-800 dark:text-white">
-            <div className="relative border-l-4 border-orange-500 pl-6 space-y-10">
+          <Card className="flex-1 text-gray-800 dark:text-white">
+            <div className="text-left relative border-l-4 border-orange-500 pl-6 space-y-10">
               {educations.map((edu, idx) => (
                 <div key={idx} className="relative">
                   <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-orange-500 border-4 border-white dark:border-gray-800"></div>
-                  <h3 className="text-sm font-bold text-gray-700 dark:text-white">{edu.year}</h3>
-                  <h4 className="text-md font-semibold mt-1 text-gray-800 dark:text-white">{edu.institution}</h4>
+                  <h3 className="text-xl font-bold text-gray-700 dark:text-white">{edu.year}</h3>
+                  <h4 className="text-xl font-semibold mt-1 text-gray-800 dark:text-white">{edu.institution}</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-300">{edu.degree}</p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">{edu.major}</p>
                 </div>
@@ -77,13 +77,13 @@ function About() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="text-3xl font-bold text-center  text-gray-800 dark:text-white">
-            <div className="relative border-l-4 border-blue-600 pl-6 space-y-10">
+          <Card className="flex-1 text-gray-800 dark:text-white">
+            <div className="text-left relative border-l-4 border-blue-600 pl-6 space-y-10">
               {jobs.map((job, idx) => (
                 <div key={idx} className="relative">
                   <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-gray-800"></div>
                   <p className="text-sm font-semibold text-blue-900 dark:text-blue-300">{job.period}</p>
-                  <h3 className="text-md font-bold text-gray-900 dark:text-white">{job.position}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{job.position}</h3>
                   <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">{job.company}</p>
                   <p className="text-sm mt-1 text-gray-600 dark:text-gray-400">{job.description}</p>
                 </div>

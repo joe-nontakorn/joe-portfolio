@@ -9,29 +9,32 @@ import MistOverlay from "./components/MistOverlay";
 
 function App() {
   return (
-<div className="max-w-full overflow-x-hidden px-4 md:px-6 lg:px-8">
-<Header />
-      <main>
-      <BackgroundBalls />
-      <MistOverlay /> {/* ✅ หมอกขาวบางๆ ด้านหน้า ball */}
+    <div>
+      <Header />
 
-        <Home />
-        <br />
-        <About />
-        <br />
-        <Skills />
-        <br />
-        <br />
-        <br />
-        <Certificates />
-        <br />
-        <br />
-        <br />
-        <Contact />
-        <br />
-        <br />
-      </main>
-      
+      <div className="w-full lg:max-w-screen-xl lg:mx-auto lg:px-12">
+        <main>
+          <BackgroundBalls />
+          <MistOverlay /> {/* ✅ หมอกขาวบางๆ ด้านหน้า ball */}
+
+          <Home />
+          <br />
+          <About />
+          <br />
+          <Skills />
+          <br />
+          <br />
+          <br />
+          <Certificates />
+          <br />
+          <br />
+          <br />
+          <Contact />
+          <br />
+          <br />
+        </main>
+
+      </div>
     </div>
   );
 }
