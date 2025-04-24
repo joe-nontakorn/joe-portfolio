@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import me from "../assets/me/65887.jpg";
 import jastel from "../assets/logoCompany/jastel.png";
-import vansales from "../assets/logoCompany/vansales.png"; 
+import vansales from "../assets/logoCompany/vansales.png";
 import nsm from "../assets/logoCompany/nsm.png";
 
 import "../assets/styles/Home.css";
@@ -52,13 +52,13 @@ function Home() {
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-full md:w-auto" // ✅ เพิ่ม class นี้ให้ container ของ Card
         >
-<Card className="w-full h-auto md:h-[520px]">
-{/* 👇 Animate เฉพาะเนื้อหาภายใน */}
+          <Card className="w-full max-w-[350px] md:max-w-[320px] h-auto md:h-[520px] text-center text-gray-800 dark:text-white">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }} // 👈 delay ให้เริ่มหลังการ slide เข้ามา
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
               className="flex flex-col items-center justify-start h-full pt-4"
             >
               <div className="w-44 h-44 mb-4 rounded-full overflow-hidden border-4 border-orange-500">
@@ -71,7 +71,7 @@ function Home() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Nontakorn Khanaphol
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 mt-1 text-center">
+              <p className="text-gray-600 dark:text-gray-300 mt-1 text-center break-words">
                 Dev / IT Engineer <br />
                 Age : 26 years old <br />
                 Nationality : Thai <br />
@@ -87,16 +87,17 @@ function Home() {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-full md:w-auto"
         >
-          <Card className="w-[840px] h-[300px] flex flex-col justify-start items-start p-6 animate-float-up">
+          <Card className="w-full max-w-[840px] h-auto md:h-[300px] flex flex-col justify-start items-start p-6">
             <div className="text-gray-800 dark:text-gray-200 space-y-2 w-full">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }} // 👈 delay ให้เริ่มหลังการ slide เข้ามา
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
               >
                 <p className="mb-1">Hello There!</p> <br />
-                <h1 className="text-4xl font-semibold">
+                <h1 className="text-2xl md:text-4xl font-semibold">
                   I'm Nontakorn Khanaphol, an IT engineer specializing in
                   infrastructure systems.
                 </h1>
@@ -108,27 +109,22 @@ function Home() {
               </motion.div>
             </div>
           </Card>
+
           <br />
 
+          {/* 👇 Card แสดงโลโก้ */}
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col gap-6" // ✅ ให้ Card ขวาเรียงแนวตั้ง
+            className="w-full md:w-auto"
           >
-            <Card className="w-[840px] h-[200px] flex flex-col items-start p-6 overflow-hidden">
+            <Card className="w-full max-w-[840px] h-auto md:h-[200px] flex flex-col items-start p-6 overflow-hidden">
               <div className="text-gray-800 dark:text-gray-200 space-y-2 w-full">
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
-                >
-                  <p className="mb-1 text-xl font-semibold">
-                    Company I Worked With
-                  </p>
-                </motion.div>
+                <p className="mb-1 text-xl font-semibold">
+                  Company I Worked With
+                </p>
 
-                {/* 🔁 โลโก้เลื่อนจากขวาไปซ้าย แบบวนลูป ไม่ซ้ำในรอบเดียวกัน */}
                 <div className="relative w-full overflow-hidden mt-4">
                   <motion.div
                     className="flex gap-16 w-max"
@@ -139,22 +135,21 @@ function Home() {
                       ease: "linear",
                     }}
                   >
-                    {/* 🎯 รอบที่ 1 */}
                     <div className="flex gap-16">
                       <img
                         src={nsm}
                         alt="NSM"
-                        className="w-[100px] h-[100px]"
+                        className="w-[80px] h-[80px] md:w-[100px] md:h-[100px]"
                       />
                       <img
                         src={vansales}
                         alt="Vansales"
-                        className="w-[300px] h-[100px]"
+                        className="w-[200px] h-[80px] md:w-[300px] md:h-[100px]"
                       />
                       <img
                         src={jastel}
                         alt="Jastel"
-                        className="w-[280px] h-[100px]"
+                        className="w-[180px] h-[80px] md:w-[280px] md:h-[100px]"
                       />
                     </div>
                   </motion.div>

@@ -9,7 +9,7 @@ import MistOverlay from "./components/MistOverlay";
 
 function App() {
   return (
-<div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+<div className="max-w-full overflow-x-hidden px-4 md:px-6 lg:px-8">
 <Header />
       <main>
       <BackgroundBalls />
@@ -17,20 +17,13 @@ function App() {
 
         <Home />
         <br />
-        <br />
         <About />
-        <br />
-        <br />
         <br />
         <Skills />
         <br />
         <br />
         <br />
-        <br />
-        <br />
         <Certificates />
-        <br />
-        <br />
         <br />
         <br />
         <br />

@@ -55,7 +55,7 @@ function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="w-[450px] h-[520px]">
+          <Card className="text-3xl font-bold text-center  text-gray-800 dark:text-white">
             <div className="relative border-l-4 border-orange-500 pl-6 space-y-10">
               {educations.map((edu, idx) => (
                 <div key={idx} className="relative">
@@ -77,7 +77,7 @@ function About() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="w-[700px] h-[520px]">
+          <Card className="text-3xl font-bold text-center  text-gray-800 dark:text-white">
             <div className="relative border-l-4 border-blue-600 pl-6 space-y-10">
               {jobs.map((job, idx) => (
                 <div key={idx} className="relative">

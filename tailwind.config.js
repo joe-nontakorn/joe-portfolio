@@ -1,7 +1,4 @@
-// // tailwind.config.js
-
-// import tailwindcss from '@tailwindcss/vite'
-import react from '@vitejs/plugin-react-swc'
+// import aspectRatio from '@tailwindcss/aspect-ratio';
 
 export default {
   darkMode: false,
@@ -13,7 +10,6 @@ export default {
     extend: {},
   },
   plugins: [
-    react(),
-    // tailwindcss(),
+    // aspectRatio,  
   ],
 }
