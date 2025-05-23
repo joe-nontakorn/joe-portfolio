@@ -1,10 +1,21 @@
 # React + Vite
-#deploy 
-npm run build 
-git add .
-git commit -m ""
-git push origin master
-npm run deploy
+# Joe Portfolio
+
+เว็บไซต์พอร์ตโฟลิโอแสดงประสบการณ์ทำงาน ทักษะ และโปรเจกต์ของฉัน สร้างด้วย Vite + React และเผยแพร่ผ่าน GitHub Pages
+
+## 🔧 เทคโนโลยีที่ใช้
+- React
+- Vite
+- Tailwind CSS
+- GitHub Pages
+
+## 🚀 วิธี Deploy
+
+1. สร้างโปรเจกต์สำหรับ production
+
+```bash
+npm run build
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
