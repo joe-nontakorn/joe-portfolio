@@ -24,16 +24,26 @@ function About() {
       period: "ก.พ. 2567 - ปัจจุบัน",
       position: "IT Engineer",
       company: "Jastel Network co. ltd",
-      description: "พัฒนาระบบตามที่ได้รับมอบหมาย ทั้ง Backend และ Frontend",
+      descriptions: [
+        "พัฒนาและดูแลระบบภายในองค์กร รวมถึงงานเขียนสคริปต์/โค้ดที่เกี่ยวข้องกับการทำงานของระบบเครือข่ายและอุปกรณ์ (เช่น Modbus, ระบบ Monitoring)",
+        "พัฒนา Web Application ตามที่ได้รับมอบหมาย ",
+        "ติดตั้งและตั้งค่าระบบเครือข่ายและอุปกรณ์ต่าง ๆ เช่น CCTV, Switch, Modbus Gateway และอุปกรณ์ IoT อื่น ๆ",
+        "ให้การสนับสนุนผู้ใช้งาน (User Support) และแก้ไขปัญหาด้าน IT ทั้ง Hardware และ Software",
+        "ดูแลระบบ Monitoring ด้วย Grafana และ Zabbix ใน Node ต่าง ๆ",
+      ],
     },
     {
       period: "พ.ค. 2565 - ก.พ. 2567",
       position: "IoT Developer and Programmer",
       company: "vansales application co. ltd",
-      description: "พัฒนาระบบตามที่ได้รับมอบหมาย ทั้ง Backend และ Frontend",
+      description: [
+        "ออกแบบวงจรและเขียนโปรแกรมควบคุมอุปกรณ์ IoT",
+        "พัฒนาระบบ web application ทั้ง Frontend และ Backend ตามที่ได้รับมอบหมาย",
+        "Support Application และแก้ไขปัญหาที่เกิดขึ้น",
+      ],
     },
     {
-      period: "พ.ค. 2565 - พ.ย. 2565",
+      period: "ม.ค. 2565 - ม.ย. 2565",
       position: "IT Support",
       company: "องค์การพิพิธภัณฑ์วิทยาศาสตร์แห่งชาติ",
       description:
@@ -60,10 +70,18 @@ function About() {
               {educations.map((edu, idx) => (
                 <div key={idx} className="relative">
                   <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-orange-500 border-4 border-white dark:border-gray-800"></div>
-                  <h3 className="text-xl font-bold text-gray-700 dark:text-white">{edu.year}</h3>
-                  <h4 className="text-xl font-semibold mt-1 text-gray-800 dark:text-white">{edu.institution}</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{edu.degree}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{edu.major}</p>
+                  <h3 className="text-xl font-bold text-gray-700 dark:text-white">
+                    {edu.year}
+                  </h3>
+                  <h4 className="text-xl font-semibold mt-1 text-gray-800 dark:text-white">
+                    {edu.institution}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    {edu.degree}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    {edu.major}
+                  </p>
                 </div>
               ))}
             </div>
@@ -82,10 +100,29 @@ function About() {
               {jobs.map((job, idx) => (
                 <div key={idx} className="relative">
                   <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-gray-800"></div>
-                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-300">{job.period}</p>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{job.position}</h3>
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">{job.company}</p>
-                  <p className="text-sm mt-1 text-gray-600 dark:text-gray-400">{job.description}</p>
+                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-300">
+                    {job.period}
+                  </p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    {job.position}
+                  </h3>
+                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                    {job.company}
+                  </p>
+                  {job.descriptions
+                    ? job.descriptions.map((desc, i) => (
+                        <p
+                          key={i}
+                          className="text-sm text-gray-600 dark:text-gray-300"
+                        >
+                          - {desc}
+                        </p>
+                      ))
+                    : job.description && (
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          - {job.description}
+                        </p>
+                      )}
                 </div>
               ))}
             </div>
