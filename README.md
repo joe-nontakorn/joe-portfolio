@@ -1,4 +1,10 @@
 # React + Vite
+#deploy 
+npm run build 
+git add .
+git commit -m ""
+git push origin master
+npm run deploy
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
