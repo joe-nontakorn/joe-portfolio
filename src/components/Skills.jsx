@@ -82,9 +82,7 @@ function Skills() {
 
   return (
     <section id="skills" className="scroll-mt-24 ">
-      <Card>
-        <h1 className="text-3xl font-bold text-center  text-gray-800 dark:text-white">Skills</h1>
-      </Card>
+        <h1 className="text-3xl font-bold text-center  text-gray-800 dark:text-white">SKILLS</h1>
       <br />
     
 

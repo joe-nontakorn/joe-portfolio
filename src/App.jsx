@@ -16,7 +16,10 @@ function App() {
         <main>
           <BackgroundBalls />
           <MistOverlay /> {/* ✅ หมอกขาวบางๆ ด้านหน้า ball */}
-
+          <br />
+          <br />
+          <br />
+          <br />
           <Home />
           <br />
           <About />
@@ -29,7 +32,18 @@ function App() {
           <br />
           <br />
           <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <Contact />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <br />
           <br />
         </main>

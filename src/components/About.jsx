@@ -54,7 +54,7 @@ function About() {
   return (
     <section id="about" className="scroll-mt-24 py-16">
       <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-        About
+        ABOUT
       </h2>
 
       <div className="flex flex-col md:flex-row gap-6 justify-center items-start">
