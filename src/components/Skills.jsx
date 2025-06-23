@@ -24,6 +24,7 @@ import k8s from "../assets/icons/icons8-kubernetes-48.png";
 import vsCode from "../assets/icons/icons8-vs-code-48.png";
 import arduino from "../assets/icons/icons8-arduino-48.png";
 import css from "../assets/icons/icons8-css-48.png";
+import n8n from "../assets/icons/n8n.png";
 
 
 function Skills() {
@@ -73,6 +74,8 @@ function Skills() {
         { name: "Ubuntu", img: ubuntu },
         { name: "Google Cloud", img: googleCloud },
         { name: "Git", img: git },
+        { name: "n8n", img: n8n },
+
 
       ],
     },
