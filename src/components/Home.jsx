@@ -103,8 +103,7 @@ function Home() {
                 </h1>
                 <br />
                 <p>
-                  I have a strong interest in cloud computing, DevOps Engineer, System engineer , IT infrastructure and
-                  Backend Develope.
+                  I am highly interested in pursuing a career in roles such as Cloud Engineer, DevOps Engineer, System Engineer, IT Infrastructure Specialist, and Backend Developer.
                 </p>
               </motion.div>
             </div>
