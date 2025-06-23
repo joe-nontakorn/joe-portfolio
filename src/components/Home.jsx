@@ -103,8 +103,8 @@ function Home() {
                 </h1>
                 <br />
                 <p>
-                  I have a strong interest in cloud computing, DevOps, and
-                  backend development.
+                  I have a strong interest in cloud computing, DevOps Engineer, System engineer , IT infrastructure and
+                  Backend Develope.
                 </p>
               </motion.div>
             </div>
