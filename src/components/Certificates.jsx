@@ -9,7 +9,7 @@ import Generative_AI_Impact_Considerations_and_Ethical_Issues from "../assets/ce
 import Migrating_to_the_AWS_Cloud from "../assets/certificates/Migrating_to_the_AWS_Cloud.pdf";
 import AWS_Cloud_Technical_Essentials from "../assets/certificates/AWS_Cloud_Technical_Essentials.pdf";
 import User_Awareness_and_Education_for_Generative_AI from "../assets/certificates/User_Awareness_and_Education_for_Generative_AI.pdf";
-
+import AWS_DevOps from "../assets/certificates/AWS_DevOps.pdf";
 
 function Certificates() {
   const certificates = [
@@ -40,6 +40,10 @@ function Certificates() {
     {
       title: "AI User Awareness",
       file: User_Awareness_and_Education_for_Generative_AI,
+    },
+     {
+      title: "AWS DevOps",
+      file: AWS_DevOps,
     },
   ];
 
