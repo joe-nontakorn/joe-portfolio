@@ -6,6 +6,7 @@ import me from "../assets/me/65887.jpg";
 import jastel from "../assets/logoCompany/jastel.png";
 import vansales from "../assets/logoCompany/vansales.png";
 import nsm from "../assets/logoCompany/nsm.png";
+import jas from "../assets/logoCompany/logo-orange.svg"; 
 
 // import "../assets/styles/Home.css";
 import Card from "./Card";
@@ -147,6 +148,11 @@ function Home() {
                       <img
                         src={jastel}
                         alt="Jastel"
+                        className="w-[180px] h-[80px] md:w-[280px] md:h-[100px]"
+                      />
+                       <img
+                        src={jas}
+                        alt="JAS"
                         className="w-[180px] h-[80px] md:w-[280px] md:h-[100px]"
                       />
                     </div>
