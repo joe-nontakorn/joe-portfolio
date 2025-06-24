@@ -26,9 +26,8 @@ import arduino from "../assets/icons/icons8-arduino-48.png";
 import css from "../assets/icons/icons8-css-48.png";
 import n8n from "../assets/icons/n8n.png";
 
-
 function Skills() {
-  const categories = [  
+  const categories = [
     {
       title: "🧠 Computer Languages",
       side: "left", // 👈 เพิ่มตรงนี้
@@ -48,8 +47,8 @@ function Skills() {
         { name: "React", img: react },
         { name: "Vue", img: vue },
         { name: "Node.js", img: nodejs },
-        { name: "Bun", img: bun},
-        { name: "Arduino", img:  arduino },
+        { name: "Bun", img: bun },
+        { name: "Arduino", img: arduino },
         { name: "ElysiaJS", img: elysia },
       ],
     },
@@ -58,7 +57,7 @@ function Skills() {
       side: "left", // 👈 เพิ่มตรงนี้
       skills: [
         { name: "MongoDB", img: mongodb },
-        { name: "MySQL", img: mysql},
+        { name: "MySQL", img: mysql },
       ],
     },
     {
@@ -75,8 +74,6 @@ function Skills() {
         { name: "Google Cloud", img: googleCloud },
         { name: "Git", img: git },
         { name: "n8n", img: n8n },
-
-
       ],
     },
   ];
@@ -85,9 +82,10 @@ function Skills() {
 
   return (
     <section id="skills" className="scroll-mt-24 ">
-        <h1 className="text-3xl font-bold text-center  text-gray-800 dark:text-white">SKILLS</h1>
+      <h1 className="text-3xl font-bold text-center  text-gray-800 dark:text-white">
+        SKILLS
+      </h1>
       <br />
-    
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {categories.map((category, idx) => (
