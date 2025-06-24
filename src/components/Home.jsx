@@ -72,8 +72,7 @@ function Home() {
                 Nontakorn Khanaphol
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mt-1 text-center break-words">
-                Dev / IT Engineer <br />
-                Age : 26 years old <br />
+                Age : 28 years old <br />
                 Nationality : Thai <br />
                 Tel : 090-9319022 <br />
                 Email : nontakorn.joe01@gmail.com

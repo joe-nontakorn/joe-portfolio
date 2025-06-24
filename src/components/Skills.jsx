@@ -25,6 +25,7 @@ import vsCode from "../assets/icons/icons8-vs-code-48.png";
 import arduino from "../assets/icons/icons8-arduino-48.png";
 import css from "../assets/icons/icons8-css-48.png";
 import n8n from "../assets/icons/n8n.png";
+import virtualbox from "../assets/icons/virtualbox_icon.png";
 
 function Skills() {
   const categories = [
@@ -74,6 +75,7 @@ function Skills() {
         { name: "Google Cloud", img: googleCloud },
         { name: "Git", img: git },
         { name: "n8n", img: n8n },
+        { name: "VirtualBox", img: virtualbox },
       ],
     },
   ];
