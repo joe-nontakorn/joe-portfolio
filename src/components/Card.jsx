@@ -2,7 +2,7 @@
 function Card({ title, link, children, className = "" }) {
   return (
     <div
-      className={`bg-white dark:bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg shadow-md hover:shadow-lg transition ${className}`}
+  className={`bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-md border border-cyan-500/20 p-4 sm:p-6 md:p-8 rounded-xl shadow-xl hover:shadow-2xl transition card-glow ${className}`}
     >
       {link && (
         <iframe
@@ -12,9 +12,7 @@ function Card({ title, link, children, className = "" }) {
       )}
 
       {title && (
-        <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">
-          {title}
-        </h3>
+        <h3 className="text-lg font-semibold mb-4 text-cyan-300">{title}</h3>
       )}
 
       {children}

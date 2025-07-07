@@ -1,3 +1,4 @@
+/* index.css */
 @import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -10,8 +11,9 @@
 }
 
 body {
-  background-color: #000000;
-  
+  background: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 80%);
+  background-attachment: fixed;
+  color: #ffffff;
 }
 
 html {
@@ -19,82 +21,39 @@ html {
     
   }
 
-  /* BackgroundBalls */
-  @keyframes move1 {
-    0%   { transform: translate(0px, 0px); }
-    25%  { transform: translate(30px, -40px); }
-    50%  { transform: translate(0px, -60px); }
-    75%  { transform: translate(-30px, -20px); }
-    100% { transform: translate(0px, 0px); }
-  }
-  
-  @keyframes move2 {
-    0%   { transform: translate(0px, 0px); }
-    25%  { transform: translate(-30px, 25px); }
-    50%  { transform: translate(-60px, 0px); }
-    75%  { transform: translate(-20px, -30px); }
-    100% { transform: translate(0px, 0px); }
-  }
-  
-  @keyframes move3 {
-    0%   { transform: translate(0px, 0px); }
-    25%  { transform: translate(25px, 20px); }
-    50%  { transform: translate(50px, -30px); }
-    75%  { transform: translate(25px, -15px); }
-    100% { transform: translate(0px, 0px); }
-  }
 
-  @keyframes move4 {
-    0%   { transform: translate(0px, 0px); }
-    25%  { transform: translate(25px, 20px); }
-    50%  { transform: translate(50px, -30px); }
-    75%  { transform: translate(25px, -15px); }
-    100% { transform: translate(0px, 0px); }
-  }
-
-  @keyframes move5 {
-    0%   { transform: translate(0px, 0px); }
-    25%  { transform: translate(25px, 20px); }
-    50%  { transform: translate(50px, -30px); }
-    75%  { transform: translate(25px, -15px); }
-    100% { transform: translate(0px, 0px); }
-  }
-
-  @keyframes move6 {
-    0%   { transform: translate(0px, 0px); }
-    25%  { transform: translate(25px, 20px); }
-    50%  { transform: translate(50px, -30px); }
-    75%  { transform: translate(25px, -15px); }
-    100% { transform: translate(0px, 0px); }
-  }
-  
-  .ball {
-    position: absolute;
-    border-radius: 9999px;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05)),
-                linear-gradient(145deg, rgba(255, 111, 0, 0.6), rgba(255, 165, 0, 0.6)); /* orange -> amber */
-    box-shadow:
-      0 0 40px rgba(255, 111, 0, 0.3),     /* inner glow: soft orange */
-      0 0 70px rgba(255, 195, 0, 0.4),     /* outer glow: amber yellow */
-      inset 0 0 25px rgba(255, 255, 255, 0.2); /* soft highlight */
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 230, 200, 0.35);
-    opacity: 0.75;
-    mix-blend-mode: screen;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  
-  
-  
-
-  .mist-overlay {
+/* Neon Grid Overlay */
+.tech-grid {
   position: fixed;
   inset: 0;
   z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, rgba(255,255,255,0.06), transparent 70%),
-              radial-gradient(ellipse at 40% 60%, rgba(255,255,255,0.04), transparent 80%);
-  backdrop-filter: blur(10px);
-  opacity: 0.4;
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 50px
+    );
+  animation: gridMove 60s linear infinite;
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 100px 100px, 100px 100px;
+  }
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 20px rgba(0,255,255,0.4), 0 0 40px rgba(0,255,255,0.2);
+  border-color: rgba(0,255,255,0.4);
 }
