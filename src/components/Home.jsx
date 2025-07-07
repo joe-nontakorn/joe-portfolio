@@ -6,7 +6,7 @@ import me from "../assets/me/65887.jpg";
 import jastel from "../assets/logoCompany/jastel.png";
 import vansales from "../assets/logoCompany/vansales.png";
 import nsm from "../assets/logoCompany/nsm.png";
-import jas from "../assets/logoCompany/logo-orange.svg"; 
+import jas from "../assets/logoCompany/logo-orange.svg";
 
 // import "../assets/styles/Home.css";
 import Card from "./Card";
@@ -103,7 +103,9 @@ function Home() {
                 </h1>
                 <br />
                 <p>
-                  I am highly interested in pursuing a career in roles such as Cloud Engineer, DevOps Engineer, System Engineer, IT Infrastructure Specialist, and Backend Developer.
+                  I am highly interested in pursuing a career in roles such as
+                  Cloud Engineer, DevOps Engineer, System Engineer, IT
+                  Infrastructure Specialist, and Backend Developer.
                 </p>
               </motion.div>
             </div>
@@ -121,7 +123,7 @@ function Home() {
             <Card className="w-full max-w-[840px] h-auto md:h-[200px] flex flex-col items-start p-6 overflow-hidden">
               <div className="text-gray-800 dark:text-gray-200 space-y-2 w-full">
                 <p className="mb-1 text-xl font-semibold">
-                  Company I Worked With
+                  Companies I have worked with
                 </p>
 
                 <div className="relative w-full overflow-hidden mt-4">
@@ -150,7 +152,7 @@ function Home() {
                         alt="Jastel"
                         className="w-[180px] h-[80px] md:w-[280px] md:h-[100px]"
                       />
-                       <img
+                      <img
                         src={jas}
                         alt="JAS"
                         className="w-[180px] h-[80px] md:w-[280px] md:h-[100px]"
