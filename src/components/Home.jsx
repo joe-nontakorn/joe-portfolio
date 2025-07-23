@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import me from "../assets/me/65887.jpg";
 import jastel from "../assets/logoCompany/jastel.png";
 import vansales from "../assets/logoCompany/vansales.png";
-import nsm from "../assets/logoCompany/nsm.png";
+import nsm from "../assets/logoCompany/NSM.png";
 import jas from "../assets/logoCompany/logo-orange.svg";
 
 // import "../assets/styles/Home.css";
