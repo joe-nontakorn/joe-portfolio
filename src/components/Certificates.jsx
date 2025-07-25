@@ -10,6 +10,7 @@ import Migrating_to_the_AWS_Cloud from "../assets/certificates/Migrating_to_the_
 import AWS_Cloud_Technical_Essentials from "../assets/certificates/AWS_Cloud_Technical_Essentials.pdf";
 import User_Awareness_and_Education_for_Generative_AI from "../assets/certificates/User_Awareness_and_Education_for_Generative_AI.pdf";
 import AWS_DevOps from "../assets/certificates/AWS_DevOps.pdf";
+import DevOpe_and_Jenkins from "../assets/certificates/DevOpe_and_Jenkins.pdf";
 
 function Certificates() {
   const certificates = [
@@ -44,6 +45,10 @@ function Certificates() {
      {
       title: "AWS DevOps",
       file: AWS_DevOps,
+    },
+      {
+      title: "DevOps and Jenkins Fundamentals",
+      file: DevOpe_and_Jenkins,
     },
   ];
 
