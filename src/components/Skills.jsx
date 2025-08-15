@@ -56,6 +56,7 @@ function Skills() {
         { name: "Google Cloud", img: googleCloud },
         { name: "VirtualBox", img: virtualbox },
         { name: "Ansible", img: ansible },
+        { name: "Nginx", img: nginx },
       ],
     },
      {
