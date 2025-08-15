@@ -28,11 +28,12 @@ import n8n from "../assets/icons/n8n.png";
 import virtualbox from "../assets/icons/virtualbox_icon.png";
 import ansible from "../assets/icons/icons8-ansible-48.png";
 import jenkins from "../assets/icons/icons8-jenkins-48.png";
+import nginx from "../assets/icons/icons8-nginx-48.png";
 
 function Skills() {
   const categories = [
     {
-      title: "🧠 Computer Languages",
+      title: "Programming Languages",
       side: "left", // 👈 เพิ่มตรงนี้
       skills: [
         { name: "JavaScript", img: javascript },
@@ -43,45 +44,60 @@ function Skills() {
         { name: "C", img: c },
       ],
     },
-    {
-      title: "⚙️ Frameworks & Runtime",
-      side: "right",
-      skills: [
-        { name: "React", img: react },
-        { name: "Vue", img: vue },
-        { name: "Node.js", img: nodejs },
-        { name: "Bun", img: bun },
-        { name: "Arduino", img: arduino },
-        { name: "ElysiaJS", img: elysia },
-      ],
-    },
-    {
-      title: "🗄 Databases",
-      side: "left", // 👈 เพิ่มตรงนี้
-      skills: [
-        { name: "MongoDB", img: mongodb },
-        { name: "MySQL", img: mysql },
-      ],
-    },
-    {
-      title: "🧰 Tools & Platforms",
-      side: "right",
+     {
+      title: "DevOps & Cloud Platforms",
+      side: "right", // 👈 เพิ่มตรงนี้
       skills: [
         { name: "Docker", img: docker },
         { name: "Kubernetes", img: k8s },
         { name: "AWS Cloud", img: aws },
         { name: "Linux", img: linux },
-        { name: "VS Code", img: vsCode },
-        { name: "Post Man", img: postman },
         { name: "Ubuntu", img: ubuntu },
         { name: "Google Cloud", img: googleCloud },
-        { name: "Git", img: git },
-        { name: "n8n", img: n8n },
         { name: "VirtualBox", img: virtualbox },
         { name: "Ansible", img: ansible },
+      ],
+    },
+     {
+      title: "Frameworks & Libraries",
+      side: "left",
+      skills: [
+        { name: "React", img: react },
+        { name: "Vue", img: vue },
+        { name: "ElysiaJS", img: elysia },
+      ],
+    },
+    {
+      title: "Developer Tools",
+      side: "right", // 👈 เพิ่มตรงนี้
+      skills: [
+        { name: "VS Code", img: vsCode },
+        { name: "Post Man", img: postman },
+        { name: "Git", img: git },
+        { name: "n8n", img: n8n },
         { name: "Jenkins", img: jenkins },
       ],
     },
+   
+    {
+      title: "Runtimes & Platforms",
+      side: "left", // 👈 เพิ่มตรงนี้
+      skills: [
+        { name: "Node.js", img: nodejs },
+        { name: "Bun", img: bun },
+        { name: "Arduino", img: arduino },
+      ],
+    },
+    {
+      title: "Databases",
+      side: "right",
+      skills: [
+        { name: "MongoDB", img: mongodb },
+        { name: "MySQL", img: mysql },
+      ],
+    },
+    
+     
   ];
 
   const whiteBgSkills = ["Linux", "AWS Cloud", "MySQL"];
