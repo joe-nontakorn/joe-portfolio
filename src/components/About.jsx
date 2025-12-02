@@ -29,7 +29,7 @@ function About() {
         "พัฒนา Web Application ตามที่ได้รับมอบหมาย ",
         "ติดตั้งและตั้งค่าระบบเครือข่ายและอุปกรณ์ต่าง ๆ เช่น CCTV, Switch, Modbus Gateway และอุปกรณ์ IoT อื่น ๆ",
         "ให้การสนับสนุนผู้ใช้งาน (User Support) และแก้ไขปัญหาด้าน IT ทั้ง Hardware และ Software",
-        "ดูแลระบบ Monitoring ด้วย Grafana และ Zabbix ใน Node ต่าง ๆ",
+        "มอนิเตอร์ระบบใน Node ต่าง ๆ ด้วย Grafana และ Zabbix",
       ],
     },
     {
