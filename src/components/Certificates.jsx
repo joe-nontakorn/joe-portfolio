@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-
+// Certificates.jsx — MATRIX THEME
 import Card from "./view/Card-certi";
 import { motion } from "framer-motion";
 import GenAI_in_Business_Discover_the_Possibilities from "../assets/certificates/GenAI_in_Business_Discover_the_Possibilities.pdf";
@@ -24,11 +24,11 @@ function Certificates() {
     },
     {
       title: "AI Fundamentals",
-      file:   Fundamentals_of_Generative_AI_for_Beginners,
+      file: Fundamentals_of_Generative_AI_for_Beginners,
     },
     {
       title: "Microsoft 365 Copilot",
-      file:  Introduction_to_Microsoft_365_Copilot,
+      file: Introduction_to_Microsoft_365_Copilot,
     },
     {
       title: "Generative AI Impact",
@@ -42,11 +42,11 @@ function Certificates() {
       title: "AI User Awareness",
       file: User_Awareness_and_Education_for_Generative_AI,
     },
-     {
+    {
       title: "AWS DevOps",
       file: AWS_DevOps,
     },
-      {
+    {
       title: "DevOps and Jenkins Fundamentals",
       file: DevOpe_and_Jenkins,
     },
@@ -54,24 +54,23 @@ function Certificates() {
 
   return (
     <section id="certificates" className="scroll-mt-24">
-      <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-        CERTIFICATE 
+      <h2 className="text-3xl font-bold text-center mb-10 text-green-400 font-matrix neon-green-subtle">
+        {"//"} CERTIFICATES
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
-  {certificates.map((cert, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      <Card title={cert.title} link={cert.file} />
-    </motion.div>
-  ))}
-</div>
-
+        {certificates.map((cert, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <Card title={cert.title} link={cert.file} />
+          </motion.div>
+        ))}
+      </div>
     </section>
   );
 }

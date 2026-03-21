@@ -1,20 +1,21 @@
+// Card-certi.jsx — MATRIX THEME
 function Card({ title, link }) {
   return (
     <div
       className="
-        bg-gradient-to-br from-gray-800/80 to-gray-900/80
+        bg-black/70
         backdrop-blur-md
-        border border-cyan-500/20
+        border border-green-500/20
         p-4
         rounded-xl
         shadow-xl
         hover:shadow-2xl
-        transition
+        transition-all duration-300
         flex flex-col items-center
         card-glow
       "
     >
-      {/* ✅ PDF Preview */}
+      {/* PDF Preview */}
       <div
         className="
           w-full
@@ -23,7 +24,7 @@ function Card({ title, link }) {
           aspect-[820/600]
           overflow-hidden
           rounded
-          border border-cyan-500/10
+          border border-green-500/10
         "
       >
         <iframe
@@ -32,7 +33,7 @@ function Card({ title, link }) {
         ></iframe>
       </div>
 
-      {/* ✅ ลิงก์เปิด PDF */}
+      {/* Link */}
       <a
         href={link}
         target="_blank"
@@ -40,11 +41,13 @@ function Card({ title, link }) {
         className="
           mt-4
           text-base
-          text-cyan-300
-          hover:text-cyan-400
+          text-green-400
+          hover:text-green-300
           hover:underline
           text-center
           font-semibold
+          font-matrix
+          neon-green-subtle
         "
       >
         {title}

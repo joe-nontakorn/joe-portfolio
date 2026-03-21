@@ -1,43 +1,46 @@
-/* index.css */
+/* index.css — THE MATRIX THEME */
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-/* ส่วนอื่น ๆ ของ Tailwind เช่น @tailwind base */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .font-8bit {
   font-family: 'Press Start 2P', cursive;
 }
 
+.font-matrix {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* ===== BODY ===== */
 body {
-  background: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 80%);
+  background: #000000;
   background-attachment: fixed;
-  color: #ffffff;
+  color: #c0ffc0;
+  font-family: 'Share Tech Mono', 'Montserrat', monospace, sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
-    
-  }
+  scroll-behavior: smooth;
+}
 
-
-/* Neon Grid Overlay */
+/* ===== Matrix Grid Overlay ===== */
 .tech-grid {
   position: fixed;
   inset: 0;
   z-index: -1;
   background: repeating-linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.03),
-      rgba(255, 255, 255, 0.03) 1px,
+      rgba(0, 255, 65, 0.03),
+      rgba(0, 255, 65, 0.03) 1px,
       transparent 1px,
       transparent 50px
     ),
     repeating-linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.03),
-      rgba(255, 255, 255, 0.03) 1px,
+      rgba(0, 255, 65, 0.03),
+      rgba(0, 255, 65, 0.03) 1px,
       transparent 1px,
       transparent 50px
     );
@@ -53,7 +56,133 @@ html {
   }
 }
 
+/* ===== Card Green Glow ===== */
 .card-glow:hover {
-  box-shadow: 0 0 20px rgba(0,255,255,0.4), 0 0 40px rgba(0,255,255,0.2);
-  border-color: rgba(0,255,255,0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.4), 0 0 40px rgba(0, 255, 65, 0.2);
+  border-color: rgba(0, 255, 65, 0.5);
+}
+
+/* ===== Glitch Text Effect ===== */
+.glitch {
+  position: relative;
+  animation: glitch-skew 4s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: #00ff41;
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch::after {
+  color: #00cc33;
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-anim-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 1px); }
+  60% { transform: translate(1px, -1px); }
+  80% { transform: translate(-1px, 2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  2% { transform: skew(0.4deg); }
+  4% { transform: skew(0deg); }
+  96% { transform: skew(0deg); }
+  98% { transform: skew(-0.4deg); }
+  100% { transform: skew(0deg); }
+}
+
+/* ===== Green Neon Text Shadow ===== */
+.neon-green {
+  text-shadow:
+    0 0 7px #00ff41,
+    0 0 10px #00ff41,
+    0 0 21px #00ff41,
+    0 0 42px #00cc33,
+    0 0 82px #00cc33;
+}
+
+.neon-green-subtle {
+  text-shadow:
+    0 0 5px rgba(0, 255, 65, 0.5),
+    0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+/* ===== Scanline Overlay ===== */
+.scanlines::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.3;
+}
+
+/* ===== Matrix Input Styles ===== */
+.matrix-input {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+  color: #00ff41 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  transition: all 0.3s ease;
+}
+
+.matrix-input::placeholder {
+  color: rgba(0, 255, 65, 0.4) !important;
+}
+
+.matrix-input:focus {
+  border-color: #00ff41 !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3), inset 0 0 10px rgba(0, 255, 65, 0.1) !important;
+  outline: none !important;
+}
+
+/* ===== Scrollbar Matrix Style ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff41;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc33;
 }

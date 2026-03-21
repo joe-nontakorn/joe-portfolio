@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+// Skills.jsx — MATRIX THEME
 import Card from "./Card";
 import { motion } from "framer-motion";
 import bun from "../assets/icons/Bun.png";
@@ -34,7 +35,7 @@ function Skills() {
   const categories = [
     {
       title: "Programming Languages",
-      side: "left", // 👈 เพิ่มตรงนี้
+      side: "left",
       skills: [
         { name: "JavaScript", img: javascript },
         { name: "HTML", img: html },
@@ -46,7 +47,7 @@ function Skills() {
     },
      {
       title: "DevOps & Cloud Platforms",
-      side: "right", // 👈 เพิ่มตรงนี้
+      side: "right",
       skills: [
         { name: "Docker", img: docker },
         { name: "Kubernetes", img: k8s },
@@ -70,7 +71,7 @@ function Skills() {
     },
     {
       title: "Developer Tools",
-      side: "right", // 👈 เพิ่มตรงนี้
+      side: "right",
       skills: [
         { name: "VS Code", img: vsCode },
         { name: "Post Man", img: postman },
@@ -82,7 +83,7 @@ function Skills() {
    
     {
       title: "Runtimes & Platforms",
-      side: "left", // 👈 เพิ่มตรงนี้
+      side: "left",
       skills: [
         { name: "Node.js", img: nodejs },
         { name: "Bun", img: bun },
@@ -97,7 +98,6 @@ function Skills() {
         { name: "MySQL", img: mysql },
       ],
     },
-    
      
   ];
 
@@ -105,8 +105,8 @@ function Skills() {
 
   return (
     <section id="skills" className="scroll-mt-24 ">
-      <h1 className="text-3xl font-bold text-center  text-gray-800 dark:text-white">
-        SKILLS
+      <h1 className="text-3xl font-bold text-center text-green-400 font-matrix neon-green-subtle">
+        {"//"} SKILLS
       </h1>
       <br />
 
@@ -124,16 +124,16 @@ function Skills() {
                 {category.skills.map((skill, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center text-sm text-gray-700 dark:text-gray-100"
+                    className="flex flex-col items-center text-sm text-green-300/80 hover:text-green-400 transition group"
                   >
                     <img
                       src={skill.img}
                       alt={skill.name}
-                      className={`w-10 h-10 object-contain mb-1 rounded ${
+                      className={`w-10 h-10 object-contain mb-1 rounded group-hover:drop-shadow-[0_0_8px_rgba(0,255,65,0.5)] transition ${
                         whiteBgSkills.includes(skill.name) ? "bg-white p-1" : ""
                       }`}
                     />
-                    <span>{skill.name}</span>
+                    <span className="font-matrix text-xs">{skill.name}</span>
                   </div>
                 ))}
               </div>
