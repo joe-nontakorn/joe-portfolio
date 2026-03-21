@@ -1,6 +1,6 @@
-// File: src/components/About.jsx
+// File: src/components/About.jsx — MATRIX THEME
 /* eslint-disable no-unused-vars */
-import { motion } from "framer-motion"; // อย่าลืม import
+import { motion } from "framer-motion";
 import Card from "./Card";
 
 function About() {
@@ -53,33 +53,33 @@ function About() {
 
   return (
     <section id="about" className="scroll-mt-24 py-16">
-      <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-        ABOUT
+      <h2 className="text-3xl font-bold text-center mb-10 text-green-400 font-matrix neon-green-subtle">
+        {"//"} ABOUT
       </h2>
 
       <div className="flex flex-col md:flex-row gap-6 justify-center items-start">
-        {/* 👈 Card ซ้าย: การศึกษา */}
+        {/* Education Card */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="flex-1 text-gray-800 dark:text-white">
-            <div className="text-left relative border-l-4 border-orange-500 pl-6 space-y-10">
+          <Card className="flex-1">
+            <div className="text-left relative border-l-4 border-green-500 pl-6 space-y-10">
               {educations.map((edu, idx) => (
                 <div key={idx} className="relative">
-                  <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-orange-500 border-4 border-white dark:border-gray-800"></div>
-                  <h3 className="text-xl font-bold text-gray-700 dark:text-white">
+                  <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-green-500 border-4 border-black shadow-[0_0_8px_rgba(0,255,65,0.6)]"></div>
+                  <h3 className="text-xl font-bold text-green-400 font-matrix">
                     {edu.year}
                   </h3>
-                  <h4 className="text-xl font-semibold mt-1 text-gray-800 dark:text-white">
+                  <h4 className="text-xl font-semibold mt-1 text-green-300">
                     {edu.institution}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-green-300/60">
                     {edu.degree}
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-green-300/60">
                     {edu.major}
                   </p>
                 </div>
@@ -88,40 +88,46 @@ function About() {
           </Card>
         </motion.div>
 
-        {/* 👉 Card ขวา: การทำงาน */}
+        {/* Work Experience Card */}
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="flex-1 text-gray-800 dark:text-white">
-            <div className="text-left relative border-l-4 border-blue-600 pl-6 space-y-10">
+          <Card className="flex-1">
+            <div className="text-left relative border-l-4 border-green-400/60 pl-6 space-y-10">
               {jobs.map((job, idx) => (
                 <div key={idx} className="relative">
-                  <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-gray-800"></div>
-                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-300">
+                  <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-green-400 border-4 border-black shadow-[0_0_8px_rgba(0,255,65,0.4)]"></div>
+                  <p className="text-sm font-semibold text-green-500/80 font-matrix">
                     {job.period}
                   </p>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                  <h3 className="text-xl font-bold text-green-400">
                     {job.position}
                   </h3>
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <p className="text-sm font-semibold text-green-300/70">
                     {job.company}
                   </p>
                   {job.descriptions
                     ? job.descriptions.map((desc, i) => (
                         <p
                           key={i}
-                          className="text-sm text-gray-600 dark:text-gray-300"
+                          className="text-sm text-green-300/60"
                         >
-                          - {desc}
+                          {">"} {desc}
                         </p>
                       ))
                     : job.description && (
-                        <p className="text-sm text-gray-600 dark:text-gray-300">
-                          - {job.description}
-                        </p>
+                        Array.isArray(job.description)
+                          ? job.description.map((desc, i) => (
+                              <p key={i} className="text-sm text-green-300/60">
+                                {">"} {desc}
+                              </p>
+                            ))
+                          : <p className="text-sm text-green-300/60">
+                              {">"} {job.description}
+                            </p>
                       )}
                 </div>
               ))}

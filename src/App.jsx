@@ -5,18 +5,16 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
-import BackgroundBalls from "./components/BackgroundBalls";
-import MistOverlay from "./components/MistOverlay";
+import MatrixRain from "./components/MatrixRain";
 
 function App() {
   return (
-    <div>
+    <div className="scanlines">
       <Header />
+      <MatrixRain />
 
       <div className="w-full lg:max-w-screen-xl lg:mx-auto lg:px-12">
         <main>
-          <BackgroundBalls />
-          {/* <MistOverlay />  */}
           <br />
           <br />
           <br />
@@ -32,8 +30,7 @@ function App() {
           <Contact />
           <div className="py-10" />
           <br />
-           <br />
-
+          <br />
         </main>
       </div>
     </div>
