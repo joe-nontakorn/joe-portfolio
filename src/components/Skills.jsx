@@ -30,6 +30,15 @@ import virtualbox from "../assets/icons/virtualbox_icon.png";
 import ansible from "../assets/icons/icons8-ansible-48.png";
 import jenkins from "../assets/icons/icons8-jenkins-48.png";
 import nginx from "../assets/icons/icons8-nginx-48.png";
+import postgresql from "../assets/icons/icons8-postgresql-48.png";
+import tcpip from "../assets/icons/tcp.png";
+import snmp from "../assets/icons/snmp-icon.svg";
+import mqtt from "../assets/icons/Mqtt--Streamline-Simple-Icons.png";
+import modbus from "../assets/icons/modbus-icon.svg";
+import grafana from "../assets/icons/icons8-grafana-48.png";
+import zabbix from "../assets/icons/Zabbix--Streamline-Svg-Logos.png";
+import gitlab from "../assets/icons/gitlab.png";
+import terraform from "../assets/icons/icons8-terraform-48.png";
 
 function Skills() {
   const categories = [
@@ -38,56 +47,28 @@ function Skills() {
       side: "left",
       skills: [
         { name: "JavaScript", img: javascript },
-        { name: "HTML", img: html },
-        { name: "CSS", img: css },
         { name: "TypeScript", img: typescript },
         { name: "Python", img: python },
         { name: "C", img: c },
       ],
     },
-     {
-      title: "DevOps & Cloud Platforms",
+    {
+      title: "Frontend Development",
       side: "right",
       skills: [
-        { name: "Docker", img: docker },
-        { name: "Kubernetes", img: k8s },
-        { name: "AWS Cloud", img: aws },
-        { name: "Linux", img: linux },
-        { name: "Ubuntu", img: ubuntu },
-        { name: "Google Cloud", img: googleCloud },
-        { name: "VirtualBox", img: virtualbox },
-        { name: "Ansible", img: ansible },
-        { name: "Nginx", img: nginx },
-      ],
-    },
-     {
-      title: "Frameworks & Libraries",
-      side: "left",
-      skills: [
+        { name: "HTML", img: html },
+        { name: "CSS", img: css },
         { name: "React", img: react },
         { name: "Vue", img: vue },
-        { name: "ElysiaJS", img: elysia },
       ],
     },
     {
-      title: "Developer Tools",
-      side: "right",
-      skills: [
-        { name: "VS Code", img: vsCode },
-        { name: "Post Man", img: postman },
-        { name: "Git", img: git },
-        { name: "n8n", img: n8n },
-        { name: "Jenkins", img: jenkins },
-      ],
-    },
-   
-    {
-      title: "Runtimes & Platforms",
+      title: "Backend & Runtimes",
       side: "left",
       skills: [
         { name: "Node.js", img: nodejs },
         { name: "Bun", img: bun },
-        { name: "Arduino", img: arduino },
+        { name: "ElysiaJS", img: elysia },
       ],
     },
     {
@@ -96,9 +77,80 @@ function Skills() {
       skills: [
         { name: "MongoDB", img: mongodb },
         { name: "MySQL", img: mysql },
+        { name: "PostgreSQL", img: postgresql },
       ],
     },
-     
+    {
+      title: "OS & Web Servers",
+      side: "left",
+      skills: [
+        { name: "Linux", img: linux },
+        { name: "Ubuntu", img: ubuntu },
+        { name: "VirtualBox", img: virtualbox },
+        { name: "Nginx", img: nginx },
+      ],
+    },
+    {
+      title: "Cloud Platforms",
+      side: "right",
+      skills: [
+        { name: "AWS Cloud", img: aws },
+        { name: "Google Cloud", img: googleCloud },
+      ],
+    },
+    {
+      title: "DevOps & Containers",
+      side: "left",
+      skills: [
+        { name: "Docker", img: docker },
+        { name: "Kubernetes", img: k8s },
+        { name: "Ansible", img: ansible },
+      ],
+    },
+    {
+      title: "CI/CD & IaC",
+      side: "right",
+      skills: [
+        { name: "Jenkins", img: jenkins },
+        { name: "GitLab CI", img: gitlab },
+        { name: "Terraform", img: terraform },
+      ],
+    },
+    {
+      title: "Networking & Protocols",
+      side: "left",
+      skills: [
+        { name: "TCP/IP", img: tcpip },
+        { name: "SNMP", img: snmp },
+        { name: "MQTT", img: mqtt },
+        { name: "Modbus", img: modbus },
+      ],
+    },
+    {
+      title: "Monitoring & Observability",
+      side: "right",
+      skills: [
+        { name: "Grafana", img: grafana },
+        { name: "Zabbix", img: zabbix },
+      ],
+    },
+    {
+      title: "Developer Tools",
+      side: "left",
+      skills: [
+        { name: "Git", img: git },
+        { name: "VS Code", img: vsCode },
+        { name: "Post Man", img: postman },
+      ],
+    },
+    {
+      title: "IoT & Automation",
+      side: "right",
+      skills: [
+        { name: "Arduino", img: arduino },
+        { name: "n8n", img: n8n },
+      ],
+    },
   ];
 
   const whiteBgSkills = ["Linux", "AWS Cloud", "MySQL"];

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <polygon points="24,2 44,14 44,34 24,46 4,34 4,14" fill="none" stroke="#D32F2F" stroke-width="2"/>
+  <text x="24" y="22" text-anchor="middle" fill="#D32F2F" font-size="8" font-weight="bold" font-family="sans-serif">Z</text>
+  <line x1="14" y1="28" x2="34" y2="28" stroke="#D32F2F" stroke-width="2"/>
+  <circle cx="18" cy="34" r="2" fill="#D32F2F"/>
+  <circle cx="24" cy="34" r="2" fill="#D32F2F"/>
+  <circle cx="30" cy="34" r="2" fill="#D32F2F"/>
+</svg>

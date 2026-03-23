@@ -18,7 +18,7 @@ function MatrixRain() {
 
     // Matrix characters (Katakana + Latin + Numbers + Symbols)
     const matrixChars =
-      "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()=+<>{}[]|;:";
+      "0101010101000111100100010010101010100010100010010100100100100100001111000101101010101001010100101001010101001010100010011111111000110001001010100100110010010101010100100";
 
     const fontSize = 16;
     let columns = Math.floor(canvas.width / fontSize);
