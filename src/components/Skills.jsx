@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// Skills.jsx — MATRIX THEME
+// Skills.jsx — Modern Theme (Responsive + Theme-aware)
 import Card from "./Card";
 import { motion } from "framer-motion";
 import bun from "../assets/icons/Bun.png";
@@ -44,7 +44,6 @@ function Skills() {
   const categories = [
     {
       title: "Programming Languages",
-      side: "left",
       skills: [
         { name: "JavaScript", img: javascript },
         { name: "TypeScript", img: typescript },
@@ -54,7 +53,6 @@ function Skills() {
     },
     {
       title: "Frontend Development",
-      side: "right",
       skills: [
         { name: "HTML", img: html },
         { name: "CSS", img: css },
@@ -64,7 +62,6 @@ function Skills() {
     },
     {
       title: "Backend & Runtimes",
-      side: "left",
       skills: [
         { name: "Node.js", img: nodejs },
         { name: "Bun", img: bun },
@@ -73,7 +70,6 @@ function Skills() {
     },
     {
       title: "Databases",
-      side: "right",
       skills: [
         { name: "MongoDB", img: mongodb },
         { name: "MySQL", img: mysql },
@@ -82,7 +78,6 @@ function Skills() {
     },
     {
       title: "OS & Web Servers",
-      side: "left",
       skills: [
         { name: "Linux", img: linux },
         { name: "Ubuntu", img: ubuntu },
@@ -92,7 +87,6 @@ function Skills() {
     },
     {
       title: "Cloud Platforms",
-      side: "right",
       skills: [
         { name: "AWS Cloud", img: aws },
         { name: "Google Cloud", img: googleCloud },
@@ -100,7 +94,6 @@ function Skills() {
     },
     {
       title: "DevOps & Containers",
-      side: "left",
       skills: [
         { name: "Docker", img: docker },
         { name: "Kubernetes", img: k8s },
@@ -109,7 +102,6 @@ function Skills() {
     },
     {
       title: "CI/CD & IaC",
-      side: "right",
       skills: [
         { name: "Jenkins", img: jenkins },
         { name: "GitLab CI", img: gitlab },
@@ -118,7 +110,6 @@ function Skills() {
     },
     {
       title: "Networking & Protocols",
-      side: "left",
       skills: [
         { name: "TCP/IP", img: tcpip },
         { name: "SNMP", img: snmp },
@@ -128,7 +119,6 @@ function Skills() {
     },
     {
       title: "Monitoring & Observability",
-      side: "right",
       skills: [
         { name: "Grafana", img: grafana },
         { name: "Zabbix", img: zabbix },
@@ -136,7 +126,6 @@ function Skills() {
     },
     {
       title: "Developer Tools",
-      side: "left",
       skills: [
         { name: "Git", img: git },
         { name: "VS Code", img: vsCode },
@@ -145,7 +134,6 @@ function Skills() {
     },
     {
       title: "IoT & Automation",
-      side: "right",
       skills: [
         { name: "Arduino", img: arduino },
         { name: "n8n", img: n8n },
@@ -156,36 +144,48 @@ function Skills() {
   const whiteBgSkills = ["Linux", "AWS Cloud", "MySQL"];
 
   return (
-    <section id="skills" className="scroll-mt-24 ">
-      <h1 className="text-3xl font-bold text-center text-green-400 font-matrix neon-green-subtle">
-        {"//"} SKILLS
+    <section id="skills" className="scroll-mt-24">
+      <h1 className="text-2xl sm:text-3xl font-bold text-center gradient-text section-heading">
+        Skills
       </h1>
-      <br />
+      <div className="mt-6 sm:mt-8" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
         {categories.map((category, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, x: category.side === "left" ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.05 }}
             viewport={{ once: true, amount: 0.2 }}
           >
             <Card key={idx} title={category.title}>
-              <div className="grid grid-cols-5 gap-5 justify-items-center">
+              <div className="flex flex-wrap gap-3 sm:gap-4 justify-start">
                 {category.skills.map((skill, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center text-sm text-green-300/80 hover:text-green-400 transition group"
+                    className="flex flex-col items-center text-xs sm:text-sm transition group"
+                    style={{ color: "var(--text-secondary)" }}
                   >
-                    <img
-                      src={skill.img}
-                      alt={skill.name}
-                      className={`w-10 h-10 object-contain mb-1 rounded group-hover:drop-shadow-[0_0_8px_rgba(0,255,65,0.5)] transition ${
-                        whiteBgSkills.includes(skill.name) ? "bg-white p-1" : ""
-                      }`}
-                    />
-                    <span className="font-matrix text-xs">{skill.name}</span>
+                    <div
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-1 transition-all"
+                      style={{
+                        background: "var(--icon-bg)",
+                      }}
+                    >
+                      <img
+                        src={skill.img}
+                        alt={skill.name}
+                        className={`w-6 h-6 sm:w-8 sm:h-8 object-contain ${
+                          whiteBgSkills.includes(skill.name)
+                            ? "bg-white rounded p-0.5"
+                            : ""
+                        }`}
+                      />
+                    </div>
+                    <span className="text-[10px] sm:text-xs mt-1 text-center">
+                      {skill.name}
+                    </span>
                   </div>
                 ))}
               </div>

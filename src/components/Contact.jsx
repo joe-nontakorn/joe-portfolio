@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// Contact.jsx — MATRIX THEME
+// Contact.jsx — Modern Theme (Responsive + Theme-aware)
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
@@ -32,36 +32,58 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24 text-green-300">
-      <h2 className="text-3xl font-bold text-center mb-10 text-green-400 font-matrix neon-green-subtle">
-        {"//"} GET_IN_TOUCH
+    <section id="contact" className="scroll-mt-24">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-10 gradient-text section-heading">
+        Get In Touch
       </h2>
 
-      <div className="flex flex-col lg:flex-row gap-6 justify-center items-start">
+      <div className="flex flex-col lg:flex-row gap-5 sm:gap-6 justify-center items-start">
         {/* Contact Info Card */}
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
           className="w-full lg:w-1/3"
         >
-          <Card className="w-full px-6 py-8 text-center">
-            <div className="space-y-6 text-green-300/80">
+          <Card className="w-full px-4 sm:px-6 py-6 sm:py-8 text-center">
+            <div className="space-y-6 sm:space-y-8">
               <div>
-                <p className="text-green-400 text-2xl">📍</p>
-                <h3 className="font-semibold text-lg text-green-400 font-matrix">location:</h3>
-                <p className="font-matrix">Bangkok, Thailand</p>
+                <p className="text-2xl sm:text-3xl mb-2">📍</p>
+                <h3
+                  className="font-semibold text-base sm:text-lg"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Location
+                </h3>
+                <p style={{ color: "var(--text-secondary)" }}>
+                  Bangkok, Thailand
+                </p>
               </div>
               <div>
-                <p className="text-green-400 text-2xl">📞</p>
-                <h3 className="font-semibold text-lg text-green-400 font-matrix">phone:</h3>
-                <p className="font-matrix">090-9319022</p>
+                <p className="text-2xl sm:text-3xl mb-2">📞</p>
+                <h3
+                  className="font-semibold text-base sm:text-lg"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Phone
+                </h3>
+                <p style={{ color: "var(--text-secondary)" }}>090-9319022</p>
               </div>
               <div>
-                <p className="text-green-400 text-2xl">✉️</p>
-                <h3 className="font-semibold text-lg text-green-400 font-matrix">email:</h3>
-                <p className="font-matrix">nontakorn.joe91@gmail.com</p>
+                <p className="text-2xl sm:text-3xl mb-2">✉️</p>
+                <h3
+                  className="font-semibold text-base sm:text-lg"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Email
+                </h3>
+                <p
+                  className="text-sm sm:text-base break-all"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  nontakorn.joe91@gmail.com
+                </p>
               </div>
             </div>
           </Card>
@@ -69,14 +91,14 @@ function Contact() {
 
         {/* Contact Form Card */}
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           viewport={{ once: true, amount: 0.2 }}
           className="w-full lg:w-2/3"
         >
-          <Card className="w-full px-6 py-8">
-            <form ref={form} onSubmit={sendEmail} className="space-y-4">
+          <Card className="w-full px-4 sm:px-6 py-6 sm:py-8">
+            <form ref={form} onSubmit={sendEmail} className="space-y-4 sm:space-y-5">
               <input
                 type="hidden"
                 name="time"
@@ -89,51 +111,57 @@ function Contact() {
               {/* Full Name & Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block mb-1 font-medium text-green-400 font-matrix text-sm">
-                    full_name:
+                  <label
+                    className="block mb-2 font-medium text-sm"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Full Name
                   </label>
                   <input
                     type="text"
                     name="user_name"
                     required
-                    placeholder="Neo Anderson"
-                    className="w-full p-3 rounded matrix-input"
+                    placeholder="Your name"
+                    className="w-full p-3 modern-input"
                   />
                 </div>
                 <div>
-                  <label className="block mb-1 font-medium text-green-400 font-matrix text-sm">
-                    email_address:
+                  <label
+                    className="block mb-2 font-medium text-sm"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Email Address
                   </label>
                   <input
                     type="email"
                     name="user_email"
                     required
-                    placeholder="neo@matrix.io"
-                    className="w-full p-3 rounded matrix-input"
+                    placeholder="your@email.com"
+                    className="w-full p-3 modern-input"
                   />
                 </div>
               </div>
 
               {/* Message */}
               <div>
-                <label className="block mb-1 font-medium text-green-400 font-matrix text-sm">
-                  message:
+                <label
+                  className="block mb-2 font-medium text-sm"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  Message
                 </label>
                 <textarea
                   name="message"
                   rows="4"
-                  placeholder="Follow the white rabbit..."
-                  className="w-full p-3 rounded matrix-input"
+                  placeholder="Write your message here..."
+                  className="w-full p-3 modern-input"
                   required
                 ></textarea>
               </div>
 
               {/* Submit */}
-              <button
-                type="submit"
-                className="bg-green-500/20 hover:bg-green-500/40 text-green-400 font-semibold py-3 px-6 rounded border border-green-500/40 transition-all duration-300 font-matrix hover:shadow-[0_0_20px_rgba(0,255,65,0.3)] neon-green-subtle"
-              >
-                {">"} send_message.exe
+              <button type="submit" className="btn-primary w-full sm:w-auto">
+                Send Message ✉️
               </button>
             </form>
           </Card>

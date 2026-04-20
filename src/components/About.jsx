@@ -1,4 +1,4 @@
-// File: src/components/About.jsx — MATRIX THEME
+// File: src/components/About.jsx — Modern Theme (Responsive + Theme-aware)
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import Card from "./Card";
@@ -52,34 +52,47 @@ function About() {
   ];
 
   return (
-    <section id="about" className="scroll-mt-24 py-16">
-      <h2 className="text-3xl font-bold text-center mb-10 text-green-400 font-matrix neon-green-subtle">
-        {"//"} ABOUT
+    <section id="about" className="scroll-mt-24 py-8 sm:py-16">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-10 gradient-text section-heading">
+        About
       </h2>
 
-      <div className="flex flex-col md:flex-row gap-6 justify-center items-start">
+      <div className="flex flex-col md:flex-row gap-5 sm:gap-6 justify-center items-start">
         {/* Education Card */}
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
+          className="w-full md:w-1/2"
         >
           <Card className="flex-1">
-            <div className="text-left relative border-l-4 border-green-500 pl-6 space-y-10">
+            <h3
+              className="text-base sm:text-lg font-semibold mb-5 sm:mb-6 flex items-center gap-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              🎓 Education
+            </h3>
+            <div className="text-left relative timeline-line pl-5 sm:pl-6 space-y-6 sm:space-y-8">
               {educations.map((edu, idx) => (
                 <div key={idx} className="relative">
-                  <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-green-500 border-4 border-black shadow-[0_0_8px_rgba(0,255,65,0.6)]"></div>
-                  <h3 className="text-xl font-bold text-green-400 font-matrix">
+                  <div className="absolute -left-[1.05rem] top-1 timeline-dot"></div>
+                  <h3
+                    className="text-sm sm:text-base font-bold"
+                    style={{ color: "var(--text-primary)" }}
+                  >
                     {edu.year}
                   </h3>
-                  <h4 className="text-xl font-semibold mt-1 text-green-300">
+                  <h4
+                    className="text-sm sm:text-base font-medium mt-1"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     {edu.institution}
                   </h4>
-                  <p className="text-sm text-green-300/60">
+                  <p className="text-xs sm:text-sm" style={{ color: "var(--text-muted)" }}>
                     {edu.degree}
                   </p>
-                  <p className="text-sm text-green-300/60">
+                  <p className="text-xs sm:text-sm" style={{ color: "var(--text-muted)" }}>
                     {edu.major}
                   </p>
                 </div>
@@ -90,45 +103,79 @@ function About() {
 
         {/* Work Experience Card */}
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           viewport={{ once: true, amount: 0.2 }}
+          className="w-full md:w-1/2"
         >
           <Card className="flex-1">
-            <div className="text-left relative border-l-4 border-green-400/60 pl-6 space-y-10">
+            <h3
+              className="text-base sm:text-lg font-semibold mb-5 sm:mb-6 flex items-center gap-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              💼 Work Experience
+            </h3>
+            <div className="text-left relative timeline-line pl-5 sm:pl-6 space-y-6 sm:space-y-8">
               {jobs.map((job, idx) => (
                 <div key={idx} className="relative">
-                  <div className="absolute -left-[1.1rem] top-1 w-4 h-4 rounded-full bg-green-400 border-4 border-black shadow-[0_0_8px_rgba(0,255,65,0.4)]"></div>
-                  <p className="text-sm font-semibold text-green-500/80 font-matrix">
+                  <div className="absolute -left-[1.05rem] top-1 timeline-dot"></div>
+                  <p
+                    className="text-xs sm:text-sm font-medium"
+                    style={{ color: "var(--accent)" }}
+                  >
                     {job.period}
                   </p>
-                  <h3 className="text-xl font-bold text-green-400">
+                  <h3
+                    className="text-sm sm:text-base font-bold"
+                    style={{ color: "var(--text-primary)" }}
+                  >
                     {job.position}
                   </h3>
-                  <p className="text-sm font-semibold text-green-300/70">
+                  <p
+                    className="text-xs sm:text-sm font-medium"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     {job.company}
                   </p>
                   {job.descriptions
                     ? job.descriptions.map((desc, i) => (
                         <p
                           key={i}
-                          className="text-sm text-green-300/60"
+                          className="text-xs sm:text-sm mt-1 pl-3"
+                          style={{
+                            color: "var(--text-muted)",
+                            borderLeft: "2px solid var(--border-color)",
+                          }}
                         >
-                          {">"} {desc}
+                          {desc}
                         </p>
                       ))
-                    : job.description && (
-                        Array.isArray(job.description)
-                          ? job.description.map((desc, i) => (
-                              <p key={i} className="text-sm text-green-300/60">
-                                {">"} {desc}
-                              </p>
-                            ))
-                          : <p className="text-sm text-green-300/60">
-                              {">"} {job.description}
+                    : job.description &&
+                      (Array.isArray(job.description)
+                        ? job.description.map((desc, i) => (
+                            <p
+                              key={i}
+                              className="text-xs sm:text-sm mt-1 pl-3"
+                              style={{
+                                color: "var(--text-muted)",
+                                borderLeft: "2px solid var(--border-color)",
+                              }}
+                            >
+                              {desc}
                             </p>
-                      )}
+                          ))
+                        : (
+                            <p
+                              className="text-xs sm:text-sm mt-1 pl-3"
+                              style={{
+                                color: "var(--text-muted)",
+                                borderLeft: "2px solid var(--border-color)",
+                              }}
+                            >
+                              {job.description}
+                            </p>
+                          ))}
                 </div>
               ))}
             </div>

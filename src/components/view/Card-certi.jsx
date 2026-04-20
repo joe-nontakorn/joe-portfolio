@@ -1,31 +1,11 @@
-// Card-certi.jsx — MATRIX THEME
+// Card-certi.jsx — Modern Theme (Responsive + Theme-aware)
 function Card({ title, link }) {
   return (
-    <div
-      className="
-        bg-black/70
-        backdrop-blur-md
-        border border-green-500/20
-        p-4
-        rounded-xl
-        shadow-xl
-        hover:shadow-2xl
-        transition-all duration-300
-        flex flex-col items-center
-        card-glow
-      "
-    >
+    <div className="modern-card p-3 sm:p-4 flex flex-col items-center w-full">
       {/* PDF Preview */}
       <div
-        className="
-          w-full
-          min-w-[360px]
-          max-w-[5800px]
-          aspect-[820/600]
-          overflow-hidden
-          rounded
-          border border-green-500/10
-        "
+        className="w-full aspect-[820/600] overflow-hidden rounded-lg"
+        style={{ border: "1px solid var(--border-color)" }}
       >
         <iframe
           src={link + "#toolbar=0&navpanes=0&scrollbar=0"}
@@ -38,17 +18,8 @@ function Card({ title, link }) {
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="
-          mt-4
-          text-base
-          text-green-400
-          hover:text-green-300
-          hover:underline
-          text-center
-          font-semibold
-          font-matrix
-          neon-green-subtle
-        "
+        className="mt-3 sm:mt-4 text-sm sm:text-base text-center font-semibold transition-colors duration-200 hover:underline"
+        style={{ color: "var(--accent)" }}
       >
         {title}
       </a>

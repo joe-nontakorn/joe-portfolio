@@ -47,7 +47,7 @@ function BackgroundBalls() {
   ];
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
       {bubbles.map((bubble, index) => (
         <div
           key={index}
