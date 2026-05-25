@@ -14,29 +14,30 @@ function App() {
       <BackgroundBalls />
       <Header />
 
-      <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <main>
-          <div className="pt-20 sm:pt-24" />
+          <div className="pt-24 sm:pt-28" />
           <Home />
-          <div className="py-8 sm:py-12" />
+          <div className="py-10 sm:py-14" />
           <About />
-          <div className="py-8 sm:py-12" />
+          <div className="py-10 sm:py-14" />
           <Skills />
-          <div className="py-8 sm:py-12" />
+          <div className="py-10 sm:py-14" />
           <Projects />
-          <div className="py-8 sm:py-12" />
+          <div className="py-10 sm:py-14" />
           <Certificates />
-          <div className="py-8 sm:py-12" />
+          <div className="py-10 sm:py-14" />
           <Contact />
-          <div className="py-12 sm:py-16" />
+          <div className="py-14 sm:py-20" />
         </main>
       </div>
 
       {/* Footer */}
       <footer
-        className="py-8 text-center text-sm transition-colors duration-300 relative z-10"
+        className="relative z-10 py-8 text-center text-sm transition-colors duration-300"
         style={{
           borderTop: "1px solid var(--border-color)",
+          background: "rgba(255, 255, 255, 0.02)",
           color: "var(--text-muted)",
         }}
       >

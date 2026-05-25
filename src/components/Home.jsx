@@ -1,6 +1,16 @@
 /* eslint-disable no-unused-vars */
-// Home.jsx — Modern Theme (Responsive + Theme-aware)
+// Home.jsx - Dark Luxury Gold Bento Grid Layout
 import { motion } from "framer-motion";
+import {
+  FiArrowUpRight,
+  FiBriefcase,
+  FiCalendar,
+  FiGlobe,
+  FiMail,
+  FiMapPin,
+  FiPhone,
+  FiSettings,
+} from "react-icons/fi";
 import me from "../assets/me/65887.jpg";
 import jastel from "../assets/logoCompany/jastel.png";
 import vansales from "../assets/logoCompany/vansales.png";
@@ -9,146 +19,244 @@ import jas from "../assets/logoCompany/logo-orange.svg";
 import Card from "./Card";
 
 function Home() {
+  const profileDetails = [
+    { icon: <FiCalendar size={17} />, label: "Age", value: "28" },
+    { icon: <FiGlobe size={17} />, label: "Nationality", value: "Thai" },
+    {
+      icon: <FiPhone size={17} />,
+      label: "Tel",
+      value: "090-9319022",
+      href: "tel:0909319022",
+    },
+    {
+      icon: <FiMail size={17} />,
+      label: "Email",
+      value: "nontakorn.joe01@gmail.com",
+      href: "mailto:nontakorn.joe01@gmail.com",
+    },
+  ];
+
+  const focusAreas = [
+    "Cloud Engineer",
+    "DevOps Engineer",
+    "System Engineer",
+    "IT Infrastructure Specialist",
+    "Backend Developer",
+  ];
+
+  const companyLogos = [
+    { src: nsm, alt: "NSM" },
+    { src: vansales, alt: "Vansales" },
+    { src: jastel, alt: "Jastel" },
+    { src: jas, alt: "JAS" },
+  ];
+
   return (
-    <section id="home" className="min-h-[70vh] sm:min-h-[80vh] flex items-center">
-      {/* Container layout */}
-      <div className="flex flex-col md:flex-row gap-6 sm:gap-8 justify-center items-stretch w-full">
-        {/* Profile Card */}
+    <section id="home" className="min-h-[calc(100vh-6rem)] flex items-center py-10 sm:py-14">
+      <div className="grid w-full grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch">
+        {/* LEFT: Profile Card */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 34 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="w-full md:w-[280px] lg:w-[300px] flex-shrink-0"
+          className="w-full"
         >
-          <Card className="text-center h-full">
+          <Card className="h-full flex flex-col p-6 sm:p-8">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-              className="flex flex-col items-center justify-start h-full pt-2 sm:pt-4"
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.18 }}
+              className="flex flex-col items-center text-center"
             >
-              <div
-                className="w-32 h-32 sm:w-40 sm:h-40 mb-4 sm:mb-5 rounded-2xl overflow-hidden shadow-lg"
-                style={{ border: "2px solid var(--border-color)" }}
-              >
-                <img
-                  src={me}
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
+              {/* Profile Image with Gold Frame */}
+              <div className="relative w-40 h-40 sm:w-48 sm:h-48 mb-6">
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background: "conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent))",
+                    padding: "3px",
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-[#1a1c20] p-1 overflow-hidden">
+                    <img
+                      src={me}
+                      alt="Nontakorn Khanapol"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                </div>
               </div>
+
+              {/* Name */}
               <h2
-                className="text-xl sm:text-2xl font-bold"
+                className="mt-6 text-2xl sm:text-3xl font-bold section-heading"
                 style={{ color: "var(--text-primary)" }}
               >
-                Nontakorn Khanaphol
+                Nontakorn
+                <br />
+                Khanapol
               </h2>
-              <div
-                className="mt-3 space-y-1 text-sm"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                <p>📅 Age : 28 years old</p>
-                <p>🇹🇭 Nationality : Thai</p>
-                <p>📞 Tel : 090-9319022</p>
-                <p>✉️ nontakorn.joe01@gmail.com</p>
+
+              {/* Details */}
+              <div className="mt-6 w-full space-y-2">
+                {profileDetails.map((item) => {
+                  const content = (
+                    <div className="flex flex-col items-center gap-1">
+                      <span className="text-xs font-semibold uppercase" style={{ color: "var(--text-muted)" }}>
+                        {item.label}
+                      </span>
+                      <span className="text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
+                        {item.value}
+                      </span>
+                    </div>
+                  );
+
+                  return (
+                    <div key={item.label} className="py-2">
+                      {content}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Location Badge */}
+              <div className="fine-panel mt-6 w-full p-3">
+                <p className="text-xs font-semibold uppercase" style={{ color: "var(--text-muted)" }}>
+                  Location
+                </p>
+                <p className="text-sm font-semibold mt-1" style={{ color: "var(--text-primary)" }}>
+                  Bangkok, Thailand
+                </p>
               </div>
             </motion.div>
           </Card>
         </motion.div>
 
-        {/* Content Card */}
+        {/* CENTER: Main Introduction */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 34 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="w-full flex-1 flex flex-col gap-6"
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.12 }}
+          className="md:col-span-1 w-full"
         >
-          <Card className="w-full h-auto flex flex-col justify-start items-start p-4 sm:p-6">
-            <div className="space-y-4 w-full">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          <Card className="flex flex-col h-full p-6 sm:p-8 md:p-10 justify-between">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.28 }}
+            >
+              <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: "var(--accent)" }}>
+                Welcome
+              </p>
+              <h1
+                className="mt-4 text-2xl sm:text-4xl font-bold section-heading leading-tight"
+                style={{ color: "var(--text-primary)" }}
               >
-                <span className="chip">👋 Hello There!</span>
-                <h1
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold mt-4 sm:mt-5 leading-tight section-heading"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  I'm Nontakorn Khanaphol,{" "}
-                  <br className="hidden md:block" />
-                  <span className="gradient-text">an IT engineer</span>{" "}
-                  specializing in infrastructure systems.
-                </h1>
-                <p
-                  className="mt-3 sm:mt-4 leading-relaxed text-sm sm:text-base"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  I am highly interested in pursuing a career in roles such as
-                  Cloud Engineer, DevOps Engineer, System Engineer, IT
-                  Infrastructure Specialist, and Backend Developer.
-                </p>
-              </motion.div>
-            </div>
-          </Card>
+                Hello! I'm{" "}
+                <span className="bg-gradient-to-r from-[#dfc299] via-[#c5a880] to-[#9a7b56] bg-clip-text text-transparent">
+                  Nontakorn Khanapol
+                </span>
+                .
+              </h1>
+              <p className="mt-4 text-base sm:text-lg font-semibold" style={{ color: "var(--text-secondary)" }}>
+                An{" "}
+                <span className="bg-gradient-to-r from-[#dfc299] via-[#c5a880] to-[#9a7b56] bg-clip-text text-transparent">
+                  IT Engineer
+                </span>
+                , specializing in{" "}
+                <span className="bg-gradient-to-r from-[#dfc299] via-[#c5a880] to-[#9a7b56] bg-clip-text text-transparent">
+                  Infrastructure Systems
+                </span>
+                .
+              </p>
+            </motion.div>
 
-          {/* Company Logos Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-            className="w-full"
-          >
-            <Card className="w-full h-auto flex flex-col items-start p-4 sm:p-6 overflow-hidden">
-              <div className="space-y-3 sm:space-y-4 w-full">
-                <p
-                  className="text-base sm:text-lg font-semibold"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  Companies I have worked with
-                </p>
-
-                <div className="relative w-full overflow-hidden mt-2">
-                  <motion.div
-                    className="flex gap-8 sm:gap-16 w-max"
-                    animate={{ x: ["100%", "-100%"] }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 18,
-                      ease: "linear",
-                    }}
-                  >
-                    <div className="flex gap-8 sm:gap-16 items-center">
-                      <img
-                        src={nsm}
-                        alt="NSM"
-                        className="w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] hover:scale-105 transition rounded-lg p-2"
-                        style={{ background: "var(--logo-bg)" }}
-                      />
-                      <img
-                        src={vansales}
-                        alt="Vansales"
-                        className="w-[150px] h-[60px] sm:w-[200px] sm:h-[80px] md:w-[300px] md:h-[100px] hover:scale-105 transition rounded-lg p-2"
-                        style={{ background: "var(--logo-bg)" }}
-                      />
-                      <img
-                        src={jastel}
-                        alt="Jastel"
-                        className="w-[140px] h-[60px] sm:w-[180px] sm:h-[80px] md:w-[280px] md:h-[100px] hover:scale-105 transition rounded-lg p-2"
-                        style={{ background: "var(--logo-bg)" }}
-                      />
-                      <img
-                        src={jas}
-                        alt="JAS"
-                        className="w-[140px] h-[60px] sm:w-[180px] sm:h-[80px] md:w-[280px] md:h-[100px] hover:scale-105 transition rounded-lg p-2"
-                        style={{ background: "var(--logo-bg)" }}
-                      />
-                    </div>
-                  </motion.div>
-                </div>
+            {/* Passion & Focus Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.36 }}
+              className="mt-8"
+            >
+              <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--accent)" }}>
+                My Passion & Future Focus
+              </p>
+              <div className="space-y-3">
+                {focusAreas.map((area) => (
+                  <div key={area} className="flex items-center gap-3">
+                    <FiSettings size={16} style={{ color: "var(--accent)" }} />
+                    <span className="text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
+                      {area}
+                    </span>
+                  </div>
+                ))}
               </div>
-            </Card>
-          </motion.div>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.44 }}
+              className="flex flex-col gap-3 mt-8"
+            >
+              <a href="#projects" className="btn-primary flex justify-center">
+                View Projects
+                <FiArrowUpRight size={18} />
+              </a>
+              <a
+                href="#contact"
+                className="contact-row justify-center px-4 py-3 font-semibold"
+                style={{ color: "var(--text-primary)" }}
+              >
+                Get In Touch
+                <FiArrowUpRight size={17} />
+              </a>
+            </motion.div>
+          </Card>
+        </motion.div>
+
+        {/* RIGHT: Companies */}
+        <motion.div
+          initial={{ opacity: 0, y: 34 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.24 }}
+          className="w-full"
+        >
+          <Card className="h-full flex flex-col p-6 sm:p-8">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.36 }}
+              className="flex flex-col"
+            >
+              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
+                Experience
+              </p>
+              <h3
+                className="mt-3 text-lg sm:text-xl font-bold section-heading"
+                style={{ color: "var(--text-primary)" }}
+              >
+                Companies I have partnered with
+              </h3>
+
+              {/* Company Logos Grid */}
+              <div className="mt-8 space-y-4">
+                {companyLogos.map((logo) => (
+                  <div
+                    key={logo.alt}
+                    className="logo-tile flex items-center justify-center h-20 sm:h-24 px-4 py-3"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="w-auto h-full max-w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </Card>
         </motion.div>
       </div>
     </section>

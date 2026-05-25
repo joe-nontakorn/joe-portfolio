@@ -1,5 +1,6 @@
 // Header.jsx — Modern Theme with Responsive + Theme Toggle
 import { useState, useEffect } from "react";
+import { FiMenu, FiMoon, FiSun, FiX } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 
 function Header() {
@@ -65,28 +66,32 @@ function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? "backdrop-blur-xl border-b shadow-lg"
-            : "bg-transparent"
-        }`}
-        style={
-          scrolled
-            ? {
-                background: "var(--header-bg)",
-                borderColor: "var(--border-color)",
-                boxShadow: `0 4px 20px ${theme === "dark" ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.06)"}`,
-              }
-            : {}
-        }
+        className="fixed top-3 sm:top-4 inset-x-0 z-50 px-3 sm:px-6 pointer-events-none"
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center h-16">
+        <div
+          className={`max-w-7xl mx-auto h-14 sm:h-16 px-3 sm:px-5 flex justify-between items-center rounded-lg border pointer-events-auto transition-all duration-300 ${
+            scrolled ? "shadow-2xl" : ""
+          }`}
+          style={{
+            background: scrolled ? "var(--header-bg)" : "rgba(7, 8, 11, 0.34)",
+            borderColor: scrolled
+              ? "var(--border-color)"
+              : "rgba(255, 255, 255, 0.055)",
+            boxShadow: scrolled
+              ? `0 16px 60px ${
+                  theme === "dark" ? "rgba(0, 0, 0, 0.45)" : "rgba(15, 23, 42, 0.12)"
+                }, inset 0 1px 0 rgba(255,255,255,0.08)`
+              : "inset 0 1px 0 rgba(255,255,255,0.06)",
+            backdropFilter: "blur(24px) saturate(140%)",
+            WebkitBackdropFilter: "blur(24px) saturate(140%)",
+          }}
+        >
           {/* Logo */}
           <h1
-            className="gradient-text font-bold text-2xl tracking-tight"
+            className="gradient-text font-bold text-xl sm:text-2xl"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
-            &lt;JOE /&gt;
+            &lt;NK /&gt;
           </h1>
 
           {/* Desktop Nav */}
@@ -132,7 +137,7 @@ function Header() {
               className="theme-toggle ml-2"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? "☀️" : "🌙"}
+              {theme === "dark" ? <FiSun size={18} /> : <FiMoon size={18} />}
             </button>
           </nav>
 
@@ -143,27 +148,14 @@ function Header() {
               className="theme-toggle"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? "☀️" : "🌙"}
+              {theme === "dark" ? <FiSun size={18} /> : <FiMoon size={18} />}
             </button>
             <button
               onClick={() => setMobileOpen(true)}
               className="hamburger"
               aria-label="Open menu"
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
+              <FiMenu size={20} />
             </button>
           </div>
         </div>
@@ -182,26 +174,14 @@ function Header() {
             className="gradient-text font-bold text-xl"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
-            &lt;JOE /&gt;
+            &lt;NK /&gt;
           </h2>
           <button
             onClick={() => setMobileOpen(false)}
             className="hamburger"
             aria-label="Close menu"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <FiX size={20} />
           </button>
         </div>
 
@@ -211,7 +191,7 @@ function Header() {
               key={item.id}
               href={`#${item.id}`}
               onClick={() => setMobileOpen(false)}
-              className="py-3 px-4 rounded-xl transition-all duration-200 font-medium text-base"
+              className="py-3 px-4 rounded-lg transition-all duration-200 font-medium text-base"
               style={{
                 background:
                   activeSection === item.id

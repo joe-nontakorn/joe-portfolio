@@ -66,11 +66,42 @@ function Projects() {
     "AC System",
   ];
 
+  const lineSupportFeatures = [
+    {
+      icon: <MdSecurity size={20} />,
+      title: "การวินิจฉัยด้วย AI",
+      desc: "เข้าใจและวินิจฉัยปัญหา IT ด้วยภาษาธรรมชาติ",
+    },
+    {
+      icon: <MdSpeed size={20} />,
+      title: "คำแนะนำแบบทีละขั้นตอน",
+      desc: "พาผู้ใช้ผ่านขั้นตอนการแก้ไขปัญหาที่ชัดเจนและเป็นระบบ",
+    },
+    {
+      icon: <MdMonitor size={20} />,
+      title: "ระบบให้คะแนน",
+      desc: "ผู้ใช้ให้คะแนนคุณภาพการสนับสนุนระดับ 1-5 เพื่อการปรับปรุงต่อเนื่อง",
+    },
+    {
+      icon: <MdNotificationsActive size={20} />,
+      title: "สร้างทิกเก็ตอัตโนมัติ",
+      desc: "สร้าง Ticket (TIC-XXXX) อัตโนมัติเมื่อ AI ไม่สามารถแก้ไขปัญหาได้",
+    },
+    {
+      icon: <FaDatabase size={18} />,
+      title: "ตรวจสอบอุปกรณ์",
+      desc: "ดึงข้อมูลอุปกรณ์และทรัพย์สินแบบเรียลไทม์เพื่อช่วยในการวินิจฉัย",
+    },
+  ];
+
   return (
-    <section id="projects" className="scroll-mt-24">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6 gradient-text section-heading">
-        Projects
-      </h2>
+    <section id="projects" className="scroll-mt-28">
+      <div className="mb-8 sm:mb-11 text-center">
+        <p className="section-kicker justify-center">Selected Work</p>
+        <h2 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text section-heading">
+          Projects
+        </h2>
+      </div>
 
       {/* Global CI/CD Banner */}
       <motion.div
@@ -80,18 +111,9 @@ function Projects() {
         viewport={{ once: true }}
         className="max-w-3xl mx-auto mb-10 sm:mb-12"
       >
-        <div
-          className="rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left"
-          style={{
-            background: "var(--bg-secondary)",
-            border: "1px solid var(--border-color)",
-          }}
-        >
-          <div
-            className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-xl"
-            style={{ background: "var(--accent-soft)", color: "var(--accent)" }}
-          >
-            🚀
+        <div className="fine-panel p-4 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+          <div className="icon-frame w-12 h-12 flex-shrink-0">
+            <FaGitAlt size={24} />
           </div>
           <div>
             <h4
@@ -122,9 +144,13 @@ function Projects() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="chip">🏢 Jastel Network</span>
-                <span className="chip" style={{ background: "rgba(34,197,94,0.1)", color: "#22c55e", border: "1px solid rgba(34,197,94,0.2)" }}>
-                  ✅ Production
+                <span className="chip">
+                  <FaNetworkWired size={14} />
+                  Jastel Network
+                </span>
+                <span className="chip" style={{ background: "var(--success-soft)", color: "var(--success)", border: "1px solid color-mix(in srgb, var(--success) 24%, transparent)" }}>
+                  <span className="h-2 w-2 rounded-full" style={{ background: "var(--success)" }} />
+                  Production
                 </span>
               </div>
               <h3
@@ -150,17 +176,16 @@ function Projects() {
             viewport={{ once: true }}
           >
             <div
-              className="rounded-xl p-4 sm:p-5 mb-5"
-              style={{
-                background: "var(--bg-secondary)",
-                border: "1px solid var(--border-color)",
-              }}
+              className="fine-panel p-4 sm:p-5 mb-5"
             >
               <h4
-                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2"
+                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-3"
                 style={{ color: "var(--text-primary)" }}
               >
-                💡 ที่มาของโครงการ
+                <span className="icon-frame h-9 w-9">
+                  <FaServer size={17} />
+                </span>
+                ที่มาของโครงการ
               </h4>
               <p
                 className="text-sm sm:text-base leading-relaxed"
@@ -185,23 +210,19 @@ function Projects() {
               className="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
-              ⚡ ฟีเจอร์หลัก
+              <span className="icon-frame h-9 w-9">
+                <MdSpeed size={18} />
+              </span>
+              ฟีเจอร์หลัก
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
               {features.map((feature, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl p-4 transition-all duration-200"
-                  style={{
-                    background: "var(--bg-secondary)",
-                    border: "1px solid var(--border-color)",
-                  }}
+                  className="fine-panel p-4 transition-all duration-200"
                 >
                   <div className="flex items-start gap-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ background: "var(--accent-soft)", color: "var(--accent)" }}
-                    >
+                    <div className="icon-frame w-10 h-10">
                       {feature.icon}
                     </div>
                     <div>
@@ -229,17 +250,16 @@ function Projects() {
             viewport={{ once: true }}
           >
             <div
-              className="rounded-xl p-4 sm:p-5 mb-5"
-              style={{
-                background: "var(--bg-secondary)",
-                border: "1px solid var(--border-color)",
-              }}
+              className="fine-panel p-4 sm:p-5 mb-5"
             >
               <h4
-                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2"
+                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-3"
                 style={{ color: "var(--text-primary)" }}
               >
-                🏗️ System Architecture
+                <span className="icon-frame h-9 w-9">
+                  <FaNetworkWired size={18} />
+                </span>
+                System Architecture
               </h4>
               <p
                 className="text-sm sm:text-base leading-relaxed mb-4"
@@ -266,7 +286,7 @@ function Projects() {
                   item.sub ? (
                     <div
                       key={idx}
-                      className="rounded-lg px-3 py-2 text-center text-xs sm:text-sm"
+                      className="fine-panel px-3 py-2 text-center text-xs sm:text-sm"
                       style={{
                         background: "var(--accent-soft)",
                         border: "1px solid rgba(129, 140, 248, 0.2)",
@@ -301,16 +321,17 @@ function Projects() {
               className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
-              📡 Monitored Devices
+              <span className="icon-frame h-9 w-9">
+                <MdOutlineSensors size={18} />
+              </span>
+              Monitored Devices
             </h4>
             <div className="flex flex-wrap gap-2 mb-6">
               {monitoringDevices.map((device, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium"
+                  className="fine-panel px-3 py-1.5 text-xs sm:text-sm font-medium"
                   style={{
-                    background: "var(--bg-secondary)",
-                    border: "1px solid var(--border-color)",
                     color: "var(--text-secondary)",
                   }}
                 >
@@ -331,16 +352,17 @@ function Projects() {
               className="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
-              🛠️ Technology Stack
+              <span className="icon-frame h-9 w-9">
+                <FaDatabase size={17} />
+              </span>
+              Technology Stack
             </h4>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               {techStack.map((tech, idx) => (
                 <div
                   key={idx}
-                  className="flex flex-col items-center gap-2 rounded-xl px-4 py-3 transition-all duration-200"
+                  className="fine-panel flex flex-col items-center gap-2 px-4 py-3 transition-all duration-200"
                   style={{
-                    background: "var(--bg-secondary)",
-                    border: "1px solid var(--border-color)",
                     color: "var(--text-secondary)",
                   }}
                 >
@@ -368,9 +390,13 @@ function Projects() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="chip">🏢 Jastel Network</span>
-                <span className="chip" style={{ background: "rgba(34,197,94,0.1)", color: "#22c55e", border: "1px solid rgba(34,197,94,0.2)" }}>
-                  ✅ Production
+                <span className="chip">
+                  <FaNetworkWired size={14} />
+                  Jastel Network
+                </span>
+                <span className="chip" style={{ background: "var(--success-soft)", color: "var(--success)", border: "1px solid color-mix(in srgb, var(--success) 24%, transparent)" }}>
+                  <span className="h-2 w-2 rounded-full" style={{ background: "var(--success)" }} />
+                  Production
                 </span>
               </div>
               <h3
@@ -396,17 +422,16 @@ function Projects() {
             viewport={{ once: true }}
           >
             <div
-              className="rounded-xl p-4 sm:p-5 mb-5"
-              style={{
-                background: "var(--bg-secondary)",
-                border: "1px solid var(--border-color)",
-              }}
+              className="fine-panel p-4 sm:p-5 mb-5"
             >
               <h4
-                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2"
+                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-3"
                 style={{ color: "var(--text-primary)" }}
               >
-                💡 ภาพรวมระบบ
+                <span className="icon-frame h-9 w-9">
+                  <FaServer size={17} />
+                </span>
+                ภาพรวมระบบ
               </h4>
               <p
                 className="text-sm sm:text-base leading-relaxed"
@@ -433,49 +458,19 @@ function Projects() {
               className="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
-              ⚡ คุณสมบัติหลัก
+              <span className="icon-frame h-9 w-9">
+                <MdSpeed size={18} />
+              </span>
+              คุณสมบัติหลัก
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
-              {[
-                {
-                  icon: "🤖",
-                  title: "การวินิจฉัยด้วย AI",
-                  desc: "เข้าใจและวินิจฉัยปัญหา IT ด้วยภาษาธรรมชาติ",
-                },
-                {
-                  icon: "📋",
-                  title: "คำแนะนำแบบทีละขั้นตอน",
-                  desc: "พาผู้ใช้ผ่านขั้นตอนการแก้ไขปัญหาที่ชัดเจนและเป็นระบบ",
-                },
-                {
-                  icon: "⭐",
-                  title: "ระบบให้คะแนน",
-                  desc: "ผู้ใช้ให้คะแนนคุณภาพการสนับสนุนระดับ 1-5 เพื่อการปรับปรุงต่อเนื่อง",
-                },
-                {
-                  icon: "🎫",
-                  title: "สร้างทิกเก็ตอัตโนมัติ",
-                  desc: "สร้าง Ticket (TIC-XXXX) อัตโนมัติเมื่อ AI ไม่สามารถแก้ไขปัญหาได้",
-                },
-                {
-                  icon: "🔍",
-                  title: "ตรวจสอบอุปกรณ์",
-                  desc: "ดึงข้อมูลอุปกรณ์และทรัพย์สินแบบเรียลไทม์เพื่อช่วยในการวินิจฉัย",
-                },
-              ].map((feature, idx) => (
+              {lineSupportFeatures.map((feature, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl p-4 transition-all duration-200"
-                  style={{
-                    background: "var(--bg-secondary)",
-                    border: "1px solid var(--border-color)",
-                  }}
+                  className="fine-panel p-4 transition-all duration-200"
                 >
                   <div className="flex items-start gap-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-lg"
-                      style={{ background: "var(--accent-soft)" }}
-                    >
+                    <div className="icon-frame w-10 h-10">
                       {feature.icon}
                     </div>
                     <div>
@@ -503,17 +498,16 @@ function Projects() {
             viewport={{ once: true }}
           >
             <div
-              className="rounded-xl p-4 sm:p-5 mb-5"
-              style={{
-                background: "var(--bg-secondary)",
-                border: "1px solid var(--border-color)",
-              }}
+              className="fine-panel p-4 sm:p-5 mb-5"
             >
               <h4
-                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2"
+                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-3"
                 style={{ color: "var(--text-primary)" }}
               >
-                🏗️ System Architecture
+                <span className="icon-frame h-9 w-9">
+                  <FaNetworkWired size={18} />
+                </span>
+                System Architecture
               </h4>
               <p
                 className="text-sm sm:text-base leading-relaxed mb-4"
@@ -548,7 +542,7 @@ function Projects() {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-lg p-3 text-center"
+                    className="fine-panel p-3 text-center"
                     style={{
                       background: "var(--accent-soft)",
                       border: "1px solid rgba(129, 140, 248, 0.2)",
@@ -589,7 +583,10 @@ function Projects() {
               className="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
-              🛠️ Technology Stack
+              <span className="icon-frame h-9 w-9">
+                <FaDatabase size={17} />
+              </span>
+              Technology Stack
             </h4>
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {[
@@ -603,10 +600,8 @@ function Projects() {
               ].map((tech, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium"
+                  className="fine-panel px-3 py-1.5 text-xs sm:text-sm font-medium"
                   style={{
-                    background: "var(--bg-secondary)",
-                    border: "1px solid var(--border-color)",
                     color: "var(--text-secondary)",
                   }}
                 >

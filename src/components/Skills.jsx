@@ -144,13 +144,15 @@ function Skills() {
   const whiteBgSkills = ["Linux", "AWS Cloud", "MySQL"];
 
   return (
-    <section id="skills" className="scroll-mt-24">
-      <h1 className="text-2xl sm:text-3xl font-bold text-center gradient-text section-heading">
-        Skills
-      </h1>
-      <div className="mt-6 sm:mt-8" />
+    <section id="skills" className="scroll-mt-28">
+      <div className="mb-8 sm:mb-11 text-center">
+        <p className="section-kicker justify-center">Capabilities</p>
+        <h2 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text section-heading">
+          Skills
+        </h2>
+      </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {categories.map((category, idx) => (
           <motion.div
             key={idx}
@@ -159,19 +161,22 @@ function Skills() {
             transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.05 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <Card key={idx} title={category.title}>
+            <Card key={idx}>
+              <div className="mb-5 flex items-start justify-between gap-3">
+                <h3 className="text-base sm:text-lg font-semibold leading-snug" style={{ color: "var(--text-primary)" }}>
+                  {category.title}
+                </h3>
+                <span className="chip">{category.skills.length}</span>
+              </div>
               <div className="flex flex-wrap gap-3 sm:gap-4 justify-start">
                 {category.skills.map((skill, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center text-xs sm:text-sm transition group"
+                    className="group flex min-w-[64px] flex-col items-center text-xs sm:text-sm transition"
                     style={{ color: "var(--text-secondary)" }}
                   >
                     <div
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-1 transition-all"
-                      style={{
-                        background: "var(--icon-bg)",
-                      }}
+                      className="icon-frame w-11 h-11 sm:w-12 sm:h-12 mb-1 transition-all group-hover:-translate-y-0.5"
                     >
                       <img
                         src={skill.img}

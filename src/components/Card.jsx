@@ -1,7 +1,10 @@
-// Card.jsx — Modern Theme (Theme-aware)
+// Card.jsx — Modern Theme (Theme-aware) - Premium Edition
 function Card({ title, link, children, className = "" }) {
+  const hasCustomPadding = /\b(p|px|py|pt|pr|pb|pl)-/.test(className);
+  const paddingClass = hasCustomPadding ? "" : "p-5 sm:p-6 md:p-7";
+
   return (
-    <div className={`modern-card p-4 sm:p-6 md:p-8 ${className}`}>
+    <div className={`modern-card ${paddingClass} ${className}`}>
       {link && (
         <iframe
           src={link + "#toolbar=0&navpanes=0&scrollbar=0"}

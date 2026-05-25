@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { FiMail, FiMapPin, FiPhone, FiSend } from "react-icons/fi";
 import Card from "./Card";
 
 function Contact() {
@@ -32,10 +33,13 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-10 gradient-text section-heading">
-        Get In Touch
-      </h2>
+    <section id="contact" className="scroll-mt-28">
+      <div className="mb-8 sm:mb-11 text-center">
+        <p className="section-kicker justify-center">Contact</p>
+        <h2 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text section-heading">
+          Get In Touch
+        </h2>
+      </div>
 
       <div className="flex flex-col lg:flex-row gap-5 sm:gap-6 justify-center items-start">
         {/* Contact Info Card */}
@@ -46,45 +50,43 @@ function Contact() {
           viewport={{ once: true, amount: 0.2 }}
           className="w-full lg:w-1/3"
         >
-          <Card className="w-full px-4 sm:px-6 py-6 sm:py-8 text-center">
-            <div className="space-y-6 sm:space-y-8">
-              <div>
-                <p className="text-2xl sm:text-3xl mb-2">📍</p>
-                <h3
-                  className="font-semibold text-base sm:text-lg"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  Location
-                </h3>
-                <p style={{ color: "var(--text-secondary)" }}>
-                  Bangkok, Thailand
-                </p>
+          <Card className="w-full px-4 sm:px-6 py-6 sm:py-8">
+            <div className="space-y-3">
+              <div className="contact-row">
+                <span className="icon-frame h-10 w-10">
+                  <FiMapPin size={18} />
+                </span>
+                <div>
+                  <h3 className="font-semibold text-base" style={{ color: "var(--text-primary)" }}>
+                    Location
+                  </h3>
+                  <p style={{ color: "var(--text-secondary)" }}>Bangkok, Thailand</p>
+                </div>
               </div>
-              <div>
-                <p className="text-2xl sm:text-3xl mb-2">📞</p>
-                <h3
-                  className="font-semibold text-base sm:text-lg"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  Phone
-                </h3>
-                <p style={{ color: "var(--text-secondary)" }}>090-9319022</p>
-              </div>
-              <div>
-                <p className="text-2xl sm:text-3xl mb-2">✉️</p>
-                <h3
-                  className="font-semibold text-base sm:text-lg"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  Email
-                </h3>
-                <p
-                  className="text-sm sm:text-base break-all"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  nontakorn.joe91@gmail.com
-                </p>
-              </div>
+              <a href="tel:0909319022" className="contact-row">
+                <span className="icon-frame h-10 w-10">
+                  <FiPhone size={18} />
+                </span>
+                <div>
+                  <h3 className="font-semibold text-base" style={{ color: "var(--text-primary)" }}>
+                    Phone
+                  </h3>
+                  <p style={{ color: "var(--text-secondary)" }}>090-9319022</p>
+                </div>
+              </a>
+              <a href="mailto:nontakorn.joe91@gmail.com" className="contact-row">
+                <span className="icon-frame h-10 w-10">
+                  <FiMail size={18} />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-base" style={{ color: "var(--text-primary)" }}>
+                    Email
+                  </h3>
+                  <p className="text-sm sm:text-base break-all" style={{ color: "var(--text-secondary)" }}>
+                    nontakorn.joe91@gmail.com
+                  </p>
+                </div>
+              </a>
             </div>
           </Card>
         </motion.div>
@@ -161,7 +163,8 @@ function Contact() {
 
               {/* Submit */}
               <button type="submit" className="btn-primary w-full sm:w-auto">
-                Send Message ✉️
+                Send Message
+                <FiSend size={17} />
               </button>
             </form>
           </Card>

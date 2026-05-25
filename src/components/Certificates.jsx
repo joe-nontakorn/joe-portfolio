@@ -26,12 +26,15 @@ function Certificates() {
   ];
 
   return (
-    <section id="certificates" className="scroll-mt-24">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-10 gradient-text section-heading">
-        Certificates
-      </h2>
+    <section id="certificates" className="scroll-mt-28">
+      <div className="mb-8 sm:mb-11 text-center">
+        <p className="section-kicker justify-center">Credentials</p>
+        <h2 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text section-heading">
+          Certificates
+        </h2>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 justify-items-center">
         {certificates.map((cert, index) => (
           <motion.div
             key={index}
