@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-// Projects.jsx — DevOps/System Engineering Focus with Metrics
-import { motion, animate } from "framer-motion";
-import { useState, useRef } from "react";
+// Projects.jsx — DevOps/System Engineering Focus
+import { motion } from "framer-motion";
 import Card from "./Card";
 import {
   FaServer,
@@ -24,56 +23,7 @@ import {
   MdSecurity,
   MdAutoFixHigh,
   MdOutlineStorage,
-  MdTrendingUp,
 } from "react-icons/md";
-
-// Animated Counter Component
-function AnimatedMetric({ target, suffix = "", icon: Icon, label }) {
-  const [display, setDisplay] = useState(0);
-  const hasRun = useRef(false);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4 }}
-      viewport={{ once: true }}
-      onViewportEnter={() => {
-        if (hasRun.current) return;
-        hasRun.current = true;
-        animate(0, target, {
-          duration: 1.8,
-          ease: "easeOut",
-          onUpdate: (v) => setDisplay(Math.round(v)),
-        });
-      }}
-      className="text-center p-4"
-    >
-      <div
-        className="inline-block mb-2 p-3 rounded-lg"
-        style={{
-          background: "rgba(197, 168, 128, 0.1)",
-          color: "var(--accent)",
-        }}
-      >
-        {Icon && <Icon size={24} />}
-      </div>
-      <p
-        className="text-2xl sm:text-3xl font-bold section-heading"
-        style={{ color: "var(--text-primary)" }}
-      >
-        {display}
-        {suffix}
-      </p>
-      <p
-        className="text-xs sm:text-sm font-semibold mt-1"
-        style={{ color: "var(--text-muted)" }}
-      >
-        {label}
-      </p>
-    </motion.div>
-  );
-}
 
 function Projects() {
   const devopsSkills = [
@@ -295,41 +245,6 @@ function Projects() {
             </div>
           </div>
 
-          {/* Project 1 Metrics */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-6 p-4 rounded-lg"
-            style={{ background: "rgba(197, 168, 128, 0.05)" }}
-          >
-            <AnimatedMetric
-              target={50}
-              suffix="+"
-              icon={MdMonitor}
-              label="Devices Monitored"
-            />
-            <AnimatedMetric
-              target={99.9}
-              suffix="%"
-              icon={MdTrendingUp}
-              label="System Uptime"
-            />
-            <AnimatedMetric
-              target={1}
-              suffix=" min"
-              icon={MdSpeed}
-              label="Alert Response"
-            />
-            <AnimatedMetric
-              target={4}
-              suffix=""
-              icon={FaNetworkWired}
-              label="Protocols Supported"
-            />
-          </motion.div>
-
           {/* Problem & Solution */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -536,41 +451,6 @@ function Projects() {
               </p>
             </div>
           </div>
-
-          {/* Project 2 Metrics */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-6 p-4 rounded-lg"
-            style={{ background: "rgba(197, 168, 128, 0.05)" }}
-          >
-            <AnimatedMetric
-              target={60}
-              suffix="%"
-              icon={MdSpeed}
-              label="Faster Resolution"
-            />
-            <AnimatedMetric
-              target={3}
-              suffix=""
-              icon={FaNetworkWired}
-              label="Support Channels"
-            />
-            <AnimatedMetric
-              target={24}
-              suffix="/7"
-              icon={MdMonitor}
-              label="Available"
-            />
-            <AnimatedMetric
-              target={5}
-              suffix=""
-              icon={MdAutoFixHigh}
-              label="Steps (AI Diagnosis)"
-            />
-          </motion.div>
 
           {/* Overview */}
           <motion.div
