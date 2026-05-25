@@ -1,57 +1,60 @@
 /* eslint-disable no-unused-vars */
-// Projects.jsx — Modern Theme (Responsive + Theme-aware)
+// Projects.jsx — DevOps/System Engineering Focus
 import { motion } from "framer-motion";
 import Card from "./Card";
 import {
   FaServer,
   FaNetworkWired,
   FaDatabase,
-  FaReact,
-  FaNodeJs,
+  FaDocker,
   FaGitAlt,
+  FaAws,
 } from "react-icons/fa";
 import {
-  SiMongodb,
-  SiNginx,
+  SiKubernetes,
   SiGitlab,
+  SiPrometheus,
+  SiGrafana,
 } from "react-icons/si";
 import {
   MdMonitor,
   MdNotificationsActive,
   MdSpeed,
   MdSecurity,
-  MdOutlineSensors,
+  MdAutoFixHigh,
+  MdOutlineStorage,
 } from "react-icons/md";
 
 function Projects() {
-  const techStack = [
-    { name: "Node.js", icon: <FaNodeJs size={28} /> },
-    { name: "React", icon: <FaReact size={28} /> },
-    { name: "MongoDB", icon: <SiMongodb size={28} /> },
-    { name: "Nginx", icon: <SiNginx size={28} /> },
-    { name: "GitLab CI", icon: <SiGitlab size={28} /> },
+  const devopsSkills = [
+    { name: "Docker", icon: <FaDocker size={24} />, desc: "Container Orchestration" },
+    { name: "Kubernetes", icon: <SiKubernetes size={24} />, desc: "Container Management" },
+    { name: "CI/CD Pipeline", icon: <SiGitlab size={24} />, desc: "Automated Deployment" },
+    { name: "Monitoring", icon: <SiPrometheus size={24} />, desc: "System Observability" },
+    { name: "Grafana", icon: <SiGrafana size={24} />, desc: "Visualization & Alerting" },
+    { name: "GitOps", icon: <FaGitAlt size={24} />, desc: "Infrastructure as Code" },
   ];
 
   const features = [
     {
       icon: <MdMonitor size={24} />,
       title: "Real-time Monitoring",
-      desc: "ตรวจสอบสถานะอุปกรณ์จากศูนย์กลางแบบเรียลไทม์",
+      desc: "ตรวจสอบสถานะระบบและอุปกรณ์จากศูนย์กลางแบบเรียลไทม์ 24/7",
     },
     {
       icon: <MdNotificationsActive size={24} />,
       title: "Auto Alert System",
-      desc: "แจ้งเตือนอัตโนมัติเมื่ออุปกรณ์มีปัญหา",
+      desc: "แจ้งเตือนอัตโนมัติเมื่อระบบหรืออุปกรณ์มีปัญหา (Email, SMS, Webhook)",
     },
     {
       icon: <MdSpeed size={24} />,
       title: "Reduce Downtime",
-      desc: "ลดโอกาสเกิด Downtime ของโครงข่าย",
+      desc: "ลดโอกาสเกิด Downtime โดยตรวจจับปัญหาก่อนเกิดผลกระทบต่อบริการ",
     },
     {
-      icon: <MdOutlineSensors size={24} />,
-      title: "Multi-Protocol",
-      desc: "รองรับ Modbus, SNMP, Ping ในระบบเดียว",
+      icon: <MdAutoFixHigh size={24} />,
+      title: "Multi-Protocol Support",
+      desc: "รองรับหลายโปรโตคอล (Modbus, SNMP, Ping) ในระบบเดียว",
     },
   ];
 
@@ -66,173 +69,294 @@ function Projects() {
     "AC System",
   ];
 
-  const lineSupportFeatures = [
+  const lineFeatures = [
     {
-      icon: <MdSecurity size={20} />,
-      title: "การวินิจฉัยด้วย AI",
-      desc: "เข้าใจและวินิจฉัยปัญหา IT ด้วยภาษาธรรมชาติ",
+      icon: <MdAutoFixHigh size={20} />,
+      title: "AI-Powered Diagnosis",
+      desc: "วินิจฉัยปัญหา IT อัจฉริยะโดยใช้ Google Gemini AI",
     },
     {
       icon: <MdSpeed size={20} />,
-      title: "คำแนะนำแบบทีละขั้นตอน",
-      desc: "พาผู้ใช้ผ่านขั้นตอนการแก้ไขปัญหาที่ชัดเจนและเป็นระบบ",
+      title: "Step-by-Step Guidance",
+      desc: "มอบคำแนะนำการแก้ไขปัญหาแบบเป็นขั้นตอนที่ชัดเจน",
     },
     {
       icon: <MdMonitor size={20} />,
-      title: "ระบบให้คะแนน",
-      desc: "ผู้ใช้ให้คะแนนคุณภาพการสนับสนุนระดับ 1-5 เพื่อการปรับปรุงต่อเนื่อง",
+      title: "Automated Ticketing",
+      desc: "สร้าง Ticket อัตโนมัติเมื่อ AI ไม่สามารถแก้ไขได้",
     },
     {
       icon: <MdNotificationsActive size={20} />,
-      title: "สร้างทิกเก็ตอัตโนมัติ",
-      desc: "สร้าง Ticket (TIC-XXXX) อัตโนมัติเมื่อ AI ไม่สามารถแก้ไขปัญหาได้",
+      title: "Asset Integration",
+      desc: "เชื่อมต่อกับ API Asset ภายในองค์กรเพื่อดึงข้อมูลอุปกรณ์",
     },
     {
-      icon: <FaDatabase size={18} />,
-      title: "ตรวจสอบอุปกรณ์",
-      desc: "ดึงข้อมูลอุปกรณ์และทรัพย์สินแบบเรียลไทม์เพื่อช่วยในการวินิจฉัย",
+      icon: <MdSecurity size={20} />,
+      title: "User Feedback Loop",
+      desc: "ระบบให้คะแนน 1-5 เพื่อปรับปรุงความแม่นยำของ AI",
     },
   ];
 
   return (
     <section id="projects" className="scroll-mt-28">
-      <div className="mb-8 sm:mb-11 text-center">
+      <div className="mb-12 sm:mb-16 text-center">
         <p className="section-kicker justify-center">Selected Work</p>
-        <h2 className="mt-3 text-3xl sm:text-4xl font-bold gradient-text section-heading">
-          Projects
+        <h2
+          className="mt-4 text-3xl sm:text-5xl font-bold section-heading"
+          style={{ color: "var(--text-primary)" }}
+        >
+          Infrastructure & <span className="gradient-text">DevOps</span> Projects
         </h2>
+        <p
+          className="mt-3 text-base sm:text-lg"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          โครงการที่เน้นด้าน System Engineering, Cloud Infrastructure, และ DevOps Practices
+        </p>
       </div>
 
-      {/* Global CI/CD Banner */}
+      {/* DevOps Skills Summary */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="max-w-3xl mx-auto mb-10 sm:mb-12"
+        className="mb-10 sm:mb-12"
       >
-        <div className="fine-panel p-4 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-          <div className="icon-frame w-12 h-12 flex-shrink-0">
-            <FaGitAlt size={24} />
+        <Card className="p-6 sm:p-8">
+          <h3
+            className="text-lg sm:text-2xl font-bold mb-6 flex items-center gap-3 section-heading"
+            style={{ color: "var(--text-primary)" }}
+          >
+            <MdOutlineStorage size={28} style={{ color: "var(--accent)" }} />
+            DevOps & Infrastructure Skills
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+            {devopsSkills.map((skill, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                viewport={{ once: true }}
+                className="fine-panel p-4 text-center hover:bg-[rgba(197,168,128,0.08)] transition-colors"
+              >
+                <div style={{ color: "var(--accent)" }} className="mb-2">
+                  {skill.icon}
+                </div>
+                <h4
+                  className="font-bold text-sm"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  {skill.name}
+                </h4>
+                <p
+                  className="text-xs mt-1"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  {skill.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </Card>
+      </motion.div>
+
+      {/* CI/CD Best Practices Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="mb-10 sm:mb-12"
+      >
+        <div className="fine-panel p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div
+            className="icon-frame w-14 h-14 flex-shrink-0"
+            style={{ background: "var(--accent-soft)" }}
+          >
+            <FaGitAlt size={24} style={{ color: "var(--accent)" }} />
           </div>
           <div>
             <h4
-              className="text-base sm:text-lg font-semibold mb-1"
+              className="text-base sm:text-lg font-bold mb-2 section-heading"
               style={{ color: "var(--text-primary)" }}
             >
-              DevOps & CI/CD Standard
+              DevOps & CI/CD Best Practices
             </h4>
-            <p className="text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>
-              ทุกโปรเจคของผมมีขั้นตอนการ Deploy ผ่าน <strong>CI/CD Pipeline</strong> อัตโนมัติด้วย{" "}
-              <strong style={{ color: "var(--accent)" }}>GitLab CI, GitLab Runner</strong> และ{" "}
-              <strong style={{ color: "var(--accent)" }}>Docker</strong>{" "}
-              รวมถึงการทำ Test และ Build ครบถ้วน เพื่อให้ระบบมีความเสถียรเสมอ
+            <p
+              className="text-sm sm:text-base"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              ทุกโปรเจคมี <strong>Automated CI/CD Pipeline</strong> เพื่อให้ Build, Test, Deploy ทำงานอัตโนมัติ
+              ด้วย <strong style={{ color: "var(--accent)" }}>GitLab CI/Runner</strong>,{" "}
+              <strong style={{ color: "var(--accent)" }}>Docker</strong> และ{" "}
+              <strong style={{ color: "var(--accent)" }}>Infrastructure as Code</strong>{" "}
+              เพื่อให้ระบบมีความเสถียรและปลอดภัยเสมอ
             </p>
           </div>
         </div>
       </motion.div>
 
-      {/* Main Project Card */}
+      {/* Project 1: Centralized Monitoring System */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.1 }}
+        className="mb-8 sm:mb-10"
       >
         <Card className="w-full overflow-hidden">
-          {/* Project Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
             <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="chip">
+              <div className="flex items-center gap-2 flex-wrap mb-3">
+                <span
+                  className="chip"
+                  style={{
+                    background: "var(--accent-soft)",
+                    color: "var(--accent)",
+                    border: "1px solid color-mix(in srgb, var(--accent) 24%, transparent)",
+                  }}
+                >
                   <FaNetworkWired size={14} />
                   Jastel Network
                 </span>
-                <span className="chip" style={{ background: "var(--success-soft)", color: "var(--success)", border: "1px solid color-mix(in srgb, var(--success) 24%, transparent)" }}>
+                <span
+                  className="chip"
+                  style={{
+                    background: "var(--success-soft)",
+                    color: "var(--success)",
+                    border: "1px solid color-mix(in srgb, var(--success) 24%, transparent)",
+                  }}
+                >
                   <span className="h-2 w-2 rounded-full" style={{ background: "var(--success)" }} />
                   Production
                 </span>
               </div>
               <h3
-                className="text-xl sm:text-2xl font-bold mt-3 section-heading"
+                className="text-2xl sm:text-3xl font-bold section-heading"
                 style={{ color: "var(--text-primary)" }}
               >
                 Centralized Monitoring Facility System
               </h3>
-              <p
-                className="text-sm sm:text-base mt-1"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                ระบบมอนิเตอร์อุปกรณ์สำคัญในโครงข่ายโทรคมนาคมจากศูนย์กลาง
+              <p className="text-sm sm:text-base mt-2" style={{ color: "var(--text-secondary)" }}>
+                ระบบมอนิเตอร์เครือข่ายโทรคมนาคม (Telecom Network Monitoring) จากศูนย์กลาง
               </p>
             </div>
           </div>
 
-          {/* Background & Problem */}
+          {/* Problem & Solution */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6"
           >
-            <div
-              className="fine-panel p-4 sm:p-5 mb-5"
-            >
+            <div className="fine-panel p-4 sm:p-5">
               <h4
-                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-3"
+                className="font-bold mb-2 flex items-center gap-2"
                 style={{ color: "var(--text-primary)" }}
               >
                 <span className="icon-frame h-9 w-9">
-                  <FaServer size={17} />
+                  <FaServer size={16} />
                 </span>
-                ที่มาของโครงการ
+                ปัญหาเดิม
               </h4>
-              <p
-                className="text-sm sm:text-base leading-relaxed"
-                style={{ color: "var(--text-secondary)" }}
+              <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                ต้องตรวจสอบสถานะอุปกรณ์จากหลายระบบแยกกัน ไม่สะดวก และเสี่ยงพลาดการมอนิเตอร์
+              </p>
+            </div>
+            <div className="fine-panel p-4 sm:p-5">
+              <h4
+                className="font-bold mb-2 flex items-center gap-2"
+                style={{ color: "var(--accent)" }}
               >
-                พัฒนาระบบ Centralized Monitoring เพื่อรวมการมอนิเตอร์อุปกรณ์โครงข่ายโทรคมนาคมหลายสิบ Node
-                ซึ่งเดิมต้องเข้าดูสถานะจากหลายระบบแยกกัน ทำให้ไม่สะดวก
-                จึงรวมข้อมูลทั้งหมดไว้ใน Dashboard เดียว
-                เพื่อช่วยตรวจสอบสถานะได้รวดเร็วและมีประสิทธิภาพ
+                <span
+                  className="icon-frame h-9 w-9"
+                  style={{ background: "var(--accent-soft)" }}
+                >
+                  <MdSpeed size={16} style={{ color: "var(--accent)" }} />
+                </span>
+                Solution
+              </h4>
+              <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                Dashboard เดียวสำหรับมอนิเตอร์ทั้งหมด พร้อม Alert อัตโนมัติและสถิติเรียลไทม์
               </p>
             </div>
           </motion.div>
 
-          {/* Features Grid */}
+          {/* Key Responsibilities */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            viewport={{ once: true }}
+          >
+            <h4
+              className="font-bold mb-4 flex items-center gap-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              <span className="icon-frame h-9 w-9">
+                <MdAutoFixHigh size={18} />
+              </span>
+              สิ่งที่ผมดำเนินการ (System Engineering)
+            </h4>
+            <div className="space-y-2 mb-6">
+              {[
+                "ออกแบบสถาปัตยกรรมระบบ (System Architecture) สำหรับมอนิเตอร์หลายโปรโตคอล",
+                "พัฒนา Backend API ด้วย Node.js สำหรับการรับ-ส่งข้อมูลจากอุปกรณ์",
+                "ตั้งค่า MongoDB Replication สำหรับความพร้อมใช้งานสูง (High Availability)",
+                "สร้าง Web Dashboard ด้วย React สำหรับการแสดงผล Real-time Metrics",
+                "ปรับแต่งระบบ Alert เพื่อลดปัญหา False Positive",
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-3">
+                  <span
+                    className="text-sm mt-1 flex-shrink-0 font-bold"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    ◆
+                  </span>
+                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Features */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
+            className="mb-6"
           >
             <h4
-              className="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2"
+              className="font-bold mb-4 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
               <span className="icon-frame h-9 w-9">
                 <MdSpeed size={18} />
               </span>
-              ฟีเจอร์หลัก
+              ฟีเจอร์ระบบ
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {features.map((feature, idx) => (
-                <div
-                  key={idx}
-                  className="fine-panel p-4 transition-all duration-200"
-                >
+                <div key={idx} className="fine-panel p-4">
                   <div className="flex items-start gap-3">
-                    <div className="icon-frame w-10 h-10">
-                      {feature.icon}
+                    <div
+                      className="icon-frame w-10 h-10"
+                      style={{ background: "var(--accent-soft)" }}
+                    >
+                      <span style={{ color: "var(--accent)" }}>{feature.icon}</span>
                     </div>
                     <div>
-                      <h5
-                        className="font-semibold text-sm sm:text-base"
-                        style={{ color: "var(--text-primary)" }}
-                      >
+                      <h5 className="font-bold text-sm" style={{ color: "var(--text-primary)" }}>
                         {feature.title}
                       </h5>
-                      <p className="text-xs sm:text-sm mt-1" style={{ color: "var(--text-muted)" }}>
+                      <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
                         {feature.desc}
                       </p>
                     </div>
@@ -242,174 +366,88 @@ function Projects() {
             </div>
           </motion.div>
 
-          {/* System Architecture Description */}
+          {/* Tech Stack */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <div
-              className="fine-panel p-4 sm:p-5 mb-5"
-            >
-              <h4
-                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-3"
-                style={{ color: "var(--text-primary)" }}
-              >
-                <span className="icon-frame h-9 w-9">
-                  <FaNetworkWired size={18} />
-                </span>
-                System Architecture
-              </h4>
-              <p
-                className="text-sm sm:text-base leading-relaxed mb-4"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                ระบบเชื่อมต่ออุปกรณ์ผ่านหลายโปรโตคอล (Modbus, SNMP, Ping)
-                ส่งข้อมูลผ่าน Internet Gateway มายัง Backend (Node.js)
-                จัดเก็บลง MongoDB แล้วแสดงผลบน Web Browser ผ่าน API
-              </p>
-
-              {/* Architecture Flow */}
-              <div className="flex flex-wrap gap-2 items-center justify-center">
-                {[
-                  { label: "Sensors", sub: "Modbus" },
-                  { label: "→" },
-                  { label: "Gateway", sub: "XML/SNMP" },
-                  { label: "→" },
-                  { label: "Node.js", sub: "Backend" },
-                  { label: "→" },
-                  { label: "MongoDB", sub: "Database" },
-                  { label: "→" },
-                  { label: "React", sub: "Frontend" },
-                ].map((item, idx) =>
-                  item.sub ? (
-                    <div
-                      key={idx}
-                      className="fine-panel px-3 py-2 text-center text-xs sm:text-sm"
-                      style={{
-                        background: "var(--accent-soft)",
-                        border: "1px solid rgba(129, 140, 248, 0.2)",
-                        color: "var(--accent)",
-                      }}
-                    >
-                      <div className="font-semibold">{item.label}</div>
-                      <div className="text-[10px] sm:text-xs opacity-70">{item.sub}</div>
-                    </div>
-                  ) : (
-                    <span
-                      key={idx}
-                      className="text-lg font-bold"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      {item.label}
-                    </span>
-                  )
-                )}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Monitored Devices */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             viewport={{ once: true }}
           >
             <h4
-              className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2"
+              className="font-bold mb-4 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
               <span className="icon-frame h-9 w-9">
-                <MdOutlineSensors size={18} />
-              </span>
-              Monitored Devices
-            </h4>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {monitoringDevices.map((device, idx) => (
-                <span
-                  key={idx}
-                  className="fine-panel px-3 py-1.5 text-xs sm:text-sm font-medium"
-                  style={{
-                    color: "var(--text-secondary)",
-                  }}
-                >
-                  {device}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Technology Stack */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <h4
-              className="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2"
-              style={{ color: "var(--text-primary)" }}
-            >
-              <span className="icon-frame h-9 w-9">
-                <FaDatabase size={17} />
+                <FaDatabase size={18} />
               </span>
               Technology Stack
             </h4>
-            <div className="flex flex-wrap gap-3 sm:gap-4">
-              {techStack.map((tech, idx) => (
-                <div
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Node.js",
+                "React",
+                "MongoDB",
+                "Modbus/SNMP",
+                "Nginx",
+                "GitLab CI",
+                "Docker",
+                "Linux Server",
+              ].map((tech, idx) => (
+                <span
                   key={idx}
-                  className="fine-panel flex flex-col items-center gap-2 px-4 py-3 transition-all duration-200"
-                  style={{
-                    color: "var(--text-secondary)",
-                  }}
+                  className="fine-panel px-3 py-1.5 text-xs sm:text-sm font-medium"
+                  style={{ color: "var(--text-secondary)" }}
                 >
-                  <div style={{ color: "var(--accent)" }}>{tech.icon}</div>
-                  <span className="text-xs sm:text-sm font-medium">{tech.name}</span>
-                </div>
+                  {tech}
+                </span>
               ))}
             </div>
           </motion.div>
         </Card>
       </motion.div>
 
-      {/* Spacer between projects */}
-      <div className="mt-6 sm:mt-8" />
-
       {/* Project 2: LINE AI IT Support */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
         viewport={{ once: true, amount: 0.1 }}
       >
         <Card className="w-full overflow-hidden">
-          {/* Project Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
             <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="chip">
+              <div className="flex items-center gap-2 flex-wrap mb-3">
+                <span
+                  className="chip"
+                  style={{
+                    background: "var(--accent-soft)",
+                    color: "var(--accent)",
+                    border: "1px solid color-mix(in srgb, var(--accent) 24%, transparent)",
+                  }}
+                >
                   <FaNetworkWired size={14} />
                   Jastel Network
                 </span>
-                <span className="chip" style={{ background: "var(--success-soft)", color: "var(--success)", border: "1px solid color-mix(in srgb, var(--success) 24%, transparent)" }}>
+                <span
+                  className="chip"
+                  style={{
+                    background: "var(--success-soft)",
+                    color: "var(--success)",
+                    border: "1px solid color-mix(in srgb, var(--success) 24%, transparent)",
+                  }}
+                >
                   <span className="h-2 w-2 rounded-full" style={{ background: "var(--success)" }} />
                   Production
                 </span>
               </div>
               <h3
-                className="text-xl sm:text-2xl font-bold mt-3 section-heading"
+                className="text-2xl sm:text-3xl font-bold section-heading"
                 style={{ color: "var(--text-primary)" }}
               >
-                LINE AI IT Support
+                LINE AI IT Support System
               </h3>
-              <p
-                className="text-sm sm:text-base mt-1"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                ระบบซัพพอร์ต IT อัจฉริยะผ่าน LINE Bot ร่วมกับ Google Gemini AI
+              <p className="text-sm sm:text-base mt-2" style={{ color: "var(--text-secondary)" }}>
+                ระบบซัพพอร์ต IT ด้วย AI ผ่าน LINE Bot พร้อม Ticketing Integration
               </p>
             </div>
           </div>
@@ -420,67 +458,97 @@ function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
+            className="fine-panel p-4 sm:p-5 mb-6"
           >
-            <div
-              className="fine-panel p-4 sm:p-5 mb-5"
+            <h4
+              className="font-bold mb-3 flex items-center gap-3"
+              style={{ color: "var(--text-primary)" }}
             >
-              <h4
-                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-3"
-                style={{ color: "var(--text-primary)" }}
-              >
-                <span className="icon-frame h-9 w-9">
-                  <FaServer size={17} />
-                </span>
-                ภาพรวมระบบ
-              </h4>
-              <p
-                className="text-sm sm:text-base leading-relaxed"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                บริการซัพพอร์ต IT ด้วย AI โดยตรงภายในแอป LINE ซึ่งเป็นแพลตฟอร์มที่ผู้ใช้คุ้นเคยอยู่แล้ว
-                ใช้ Google Gemini AI เพื่อทำความเข้าใจ วินิจฉัย
-                และตอบสนองต่อปัญหา IT อย่างชาญฉลาด
-                พร้อมเชื่อมต่อกับ API ข้อมูล Asset ภายในองค์กร
-                ทำให้ผู้ใช้สามารถเช็คข้อมูลอุปกรณ์ของตัวเองได้ง่ายๆ แค่ถาม AI ใน LINE
-                รวมถึงช่วยแก้ไขปัญหาด้วยตนเองผ่านคำแนะนำแบบเป็นขั้นตอน
-              </p>
+              <span className="icon-frame h-9 w-9">
+                <FaServer size={17} />
+              </span>
+              ภาพรวมระบบ
+            </h4>
+            <p className="text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>
+              ระบบที่รวม LINE Bot + Google Gemini AI + MongoDB + Ticketing System
+              ให้ผู้ใช้สามารถขอความช่วยเหลือด้าน IT ผ่าน LINE ได้ง่ายๆ
+              โดยระบบจะวินิจฉัยปัญหาด้วย AI และสร้าง Ticket อัตโนมัติหากต้องการสนับสนุนเพิ่มเติม
+            </p>
+          </motion.div>
+
+          {/* Responsibilities */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="mb-6"
+          >
+            <h4
+              className="font-bold mb-4 flex items-center gap-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              <span className="icon-frame h-9 w-9">
+                <MdAutoFixHigh size={18} />
+              </span>
+              สิ่งที่ผมดำเนินการ (Backend & Infrastructure)
+            </h4>
+            <div className="space-y-2">
+              {[
+                "พัฒนา Web Server ด้วย Bun.js + Express จัดการ LINE Webhook",
+                "ทำ Integration กับ Google Gemini AI API สำหรับการวินิจฉัยปัญหา",
+                "ออกแบบ Database Schema สำหรับจัดเก็บ Users, Conversations, Tickets",
+                "สร้าง Internal API สำหรับดึงข้อมูล Asset และอุปกรณ์ของผู้ใช้",
+                "ตั้งค่า Cloudflare Worker สำหรับ Rate Limiting และ Security",
+                "จัดการ CI/CD Pipeline และ Error Logging ของระบบ",
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-3">
+                  <span
+                    className="text-sm mt-1 flex-shrink-0 font-bold"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    ◆
+                  </span>
+                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Features Grid */}
+          {/* Features */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
+            className="mb-6"
           >
             <h4
-              className="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2"
+              className="font-bold mb-4 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
               <span className="icon-frame h-9 w-9">
                 <MdSpeed size={18} />
               </span>
-              คุณสมบัติหลัก
+              คุณสมบัติสำคัญ
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
-              {lineSupportFeatures.map((feature, idx) => (
-                <div
-                  key={idx}
-                  className="fine-panel p-4 transition-all duration-200"
-                >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              {lineFeatures.map((feature, idx) => (
+                <div key={idx} className="fine-panel p-4">
                   <div className="flex items-start gap-3">
-                    <div className="icon-frame w-10 h-10">
-                      {feature.icon}
+                    <div
+                      className="icon-frame w-10 h-10"
+                      style={{ background: "var(--accent-soft)" }}
+                    >
+                      <span style={{ color: "var(--accent)" }}>{feature.icon}</span>
                     </div>
                     <div>
-                      <h5
-                        className="font-semibold text-sm sm:text-base"
-                        style={{ color: "var(--text-primary)" }}
-                      >
+                      <h5 className="font-bold text-sm" style={{ color: "var(--text-primary)" }}>
                         {feature.title}
                       </h5>
-                      <p className="text-xs sm:text-sm mt-1" style={{ color: "var(--text-muted)" }}>
+                      <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
                         {feature.desc}
                       </p>
                     </div>
@@ -490,120 +558,38 @@ function Projects() {
             </div>
           </motion.div>
 
-          {/* System Architecture */}
+          {/* Tech Stack */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <div
-              className="fine-panel p-4 sm:p-5 mb-5"
-            >
-              <h4
-                className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-3"
-                style={{ color: "var(--text-primary)" }}
-              >
-                <span className="icon-frame h-9 w-9">
-                  <FaNetworkWired size={18} />
-                </span>
-                System Architecture
-              </h4>
-              <p
-                className="text-sm sm:text-base leading-relaxed mb-4"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                ระบบมี 4 ชั้นทำงานร่วมกันเพื่อมอบประสบการณ์การซัพพอร์ตด้วย AI ที่ราบรื่น
-              </p>
-
-              {/* 4-Layer Architecture */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {[
-                  {
-                    layer: "1",
-                    title: "LINE Bot",
-                    desc: "LINE Messaging API รับ-ส่งข้อความกับผู้ใช้งาน",
-                  },
-                  {
-                    layer: "2",
-                    title: "Web Server",
-                    desc: "Bun.js + Express รับ Webhook, จัดการ routing",
-                  },
-                  {
-                    layer: "3",
-                    title: "AI Service",
-                    desc: "Google Gemini AI วิเคราะห์ปัญหาและตอบคำถาม",
-                  },
-                  {
-                    layer: "4",
-                    title: "Database",
-                    desc: "MongoDB จัดเก็บ Users, Conversations, Tickets",
-                  },
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="fine-panel p-3 text-center"
-                    style={{
-                      background: "var(--accent-soft)",
-                      border: "1px solid rgba(129, 140, 248, 0.2)",
-                    }}
-                  >
-                    <div
-                      className="text-[10px] sm:text-xs font-bold mb-1"
-                      style={{ color: "var(--accent)" }}
-                    >
-                      ชั้นที่ {item.layer}
-                    </div>
-                    <div
-                      className="font-semibold text-xs sm:text-sm"
-                      style={{ color: "var(--text-primary)" }}
-                    >
-                      {item.title}
-                    </div>
-                    <p
-                      className="text-[10px] sm:text-xs mt-1 leading-relaxed"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Technology Stack */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             viewport={{ once: true }}
           >
             <h4
-              className="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2"
+              className="font-bold mb-4 flex items-center gap-2"
               style={{ color: "var(--text-primary)" }}
             >
               <span className="icon-frame h-9 w-9">
-                <FaDatabase size={17} />
+                <FaDatabase size={18} />
               </span>
               Technology Stack
             </h4>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+            <div className="flex flex-wrap gap-2">
               {[
                 "LINE Bot API",
                 "Bun.js",
-                "Express",
+                "Express.js",
                 "Google Gemini AI",
                 "MongoDB",
                 "Cloudflare",
                 "Webhook",
+                "Docker",
+                "Node.js",
               ].map((tech, idx) => (
                 <span
                   key={idx}
                   className="fine-panel px-3 py-1.5 text-xs sm:text-sm font-medium"
-                  style={{
-                    color: "var(--text-secondary)",
-                  }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   {tech}
                 </span>
