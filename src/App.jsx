@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import GitHubStats from "./components/GitHubStats";
 import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
 
@@ -24,6 +25,8 @@ function App() {
           <Skills />
           <div className="py-10 sm:py-14" />
           <Projects />
+          <div className="py-10 sm:py-14" />
+          <GitHubStats />
           <div className="py-10 sm:py-14" />
           <Certificates />
           <div className="py-10 sm:py-14" />
