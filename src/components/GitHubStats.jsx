@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
-// GitHubStats.jsx — Live GitHub Statistics with Dark Luxury Gold Theme
+// GitHubStats.jsx — Live GitHub Statistics & Contribution Calendar with Dark Luxury Gold Theme
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FiGithub, FiStar, FiUsers, FiCode } from "react-icons/fi";
+import { GitHubCalendar } from "react-github-calendar";
 import Card from "./Card";
 
 function GitHubStats() {
@@ -20,14 +21,14 @@ function GitHubStats() {
 
         // Fetch user profile
         const userRes = await fetch(
-          `https://api.github.com/users/${GITHUB_USERNAME}`
+          `https://api.github.com/users/${GITHUB_USERNAME}`,
         );
         if (!userRes.ok) throw new Error("Failed to fetch user profile");
         const userData = await userRes.json();
 
         // Fetch repositories
         const reposRes = await fetch(
-          `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=pushed&type=owner`
+          `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=pushed&type=owner`,
         );
         if (!reposRes.ok) throw new Error("Failed to fetch repositories");
         const reposData = await reposRes.json();
@@ -281,7 +282,10 @@ function GitHubStats() {
 
               {/* Top Languages */}
               {topLanguages.length > 0 && (
-                <div className="mt-8 pt-8 border-t" style={{ borderColor: "var(--border-color)" }}>
+                <div
+                  className="mt-8 pt-8 border-t"
+                  style={{ borderColor: "var(--border-color)" }}
+                >
                   <p
                     className="text-xs font-bold uppercase tracking-wide mb-4"
                     style={{ color: "var(--accent)" }}
@@ -380,7 +384,10 @@ function GitHubStats() {
                           className="flex items-center gap-1"
                           style={{ color: "var(--text-muted)" }}
                         >
-                          <FiStar size={14} style={{ color: "var(--accent)" }} />
+                          <FiStar
+                            size={14}
+                            style={{ color: "var(--accent)" }}
+                          />
                           <span>{repo.stargazers_count}</span>
                         </div>
 
@@ -396,27 +403,72 @@ function GitHubStats() {
                   </motion.a>
                 ))}
               </div>
-
-              {/* View More Link */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="mt-8 text-center"
-              >
-                <a
-                  href={`https://github.com/${GITHUB_USERNAME}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  <FiGithub size={18} />
-                  View All on GitHub
-                </a>
-              </motion.div>
             </motion.div>
           )}
+
+          {/* Contribution Calendar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-12"
+          >
+            <h3
+              className="text-lg sm:text-xl font-bold mb-6 section-heading"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Contribution History
+            </h3>
+            <Card className="p-6 sm:p-8 overflow-x-auto">
+              <div className="flex justify-center">
+                <div style={{ minWidth: "fit-content" }}>
+                  <GitHubCalendar
+                    username={GITHUB_USERNAME}
+                    blockMargin={4}
+                    blockSize={12}
+                    colorScheme="dark"
+                    hideColorLegend={false}
+                    fontSize={14}
+                    theme={{
+                      light: [
+                        "var(--bg-secondary)",
+                        "rgba(197, 168, 128, 0.3)",
+                        "rgba(197, 168, 128, 0.5)",
+                        "rgba(197, 168, 128, 0.7)",
+                        "var(--accent)",
+                      ],
+                      dark: [
+                        "var(--bg-secondary)",
+                        "rgba(197, 168, 128, 0.3)",
+                        "rgba(197, 168, 128, 0.5)",
+                        "rgba(197, 168, 128, 0.7)",
+                        "var(--accent)",
+                      ],
+                    }}
+                  />
+                </div>
+              </div>
+            </Card>
+            {/* View More Link */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="mt-8 text-center"
+            >
+              <a
+                href={`https://github.com/${GITHUB_USERNAME}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                <FiGithub size={18} />
+                View All on GitHub
+              </a>
+            </motion.div>
+          </motion.div>
         </>
       )}
     </section>
