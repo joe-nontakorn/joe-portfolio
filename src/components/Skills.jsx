@@ -39,7 +39,9 @@ import grafana from "../assets/icons/icons8-grafana-48.png";
 import zabbix from "../assets/icons/Zabbix--Streamline-Svg-Logos.png";
 import gitlab from "../assets/icons/gitlab.png";
 import terraform from "../assets/icons/icons8-terraform-48.png";
-
+import gpt from "../assets/icons/chatgpt.png";
+import claude from "../assets/icons/claudecode-color.svg";
+import gemini from "../assets/icons/icons8-gemini-ai-94.png";
 function Skills() {
   const categories = [
     {
@@ -130,6 +132,9 @@ function Skills() {
         { name: "Git", img: git },
         { name: "VS Code", img: vsCode },
         { name: "Post Man", img: postman },
+        { name: "ChatGPT", img: gpt },
+        { name: "Claude Code", img: claude },
+        { name: "Gemini", img: gemini },
       ],
     },
     {
