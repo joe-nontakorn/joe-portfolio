@@ -4,9 +4,22 @@
   position: absolute;
   inset: auto -10% 0;
   height: 42vh;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.42));
+  background:
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.42)),
+    radial-gradient(ellipse at 50% 100%, rgba(197, 168, 128, 0.12), transparent 60%);
 }
 
 .light .background-luxury-vignette {
-  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.52));
+  background:
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.52)),
+    radial-gradient(ellipse at 50% 100%, rgba(15, 107, 131, 0.1), transparent 60%);
+}
+
+/* Tech glow elements */
+.ambient-shell::after {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 100px 100px;
+  opacity: 0.35;
 }

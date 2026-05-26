@@ -1,6 +1,7 @@
 // File: src/App.jsx
 import Header from "./components/Header";
 import BackgroundBalls from "./components/BackgroundBalls";
+import TechBackground from "./components/TechBackground";
 import Home from "./components/Home";
 import About from "./components/About";
 import Skills from "./components/Skills";
@@ -12,6 +13,7 @@ import Contact from "./components/Contact";
 function App() {
   return (
     <div className="bg-gradient-subtle min-h-screen transition-colors duration-300">
+      <TechBackground />
       <BackgroundBalls />
       <Header />
 
