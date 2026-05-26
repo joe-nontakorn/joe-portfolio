@@ -8,13 +8,13 @@ function About() {
   const educations = [
     {
       year: "2562 - 2565",
-      institution: "มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี",
+      institution: "Rajamangala University of Technology Thanyaburi",
       degree: "ปริญญาตรี คณะวิศวกรรมศาสตร์",
       major: "สาขา วิศวกรรมคอมพิวเตอร์",
     },
     {
       year: "2557 - 2561",
-      institution: "วิทยาลัยเทคนิคชัยนาท",
+      institution: "Chainat Technical College",
       degree: "ปวส., ปวช. ช่างไฟฟ้ากำลัง",
       major: "สาขา ติดตั้งไฟฟ้า",
     },
