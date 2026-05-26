@@ -1,0 +1,35 @@
+/* Header.css */
+@import "tailwindcss";
+
+.header {
+    @apply fixed top-0 left-0 w-full z-50 bg-white dark:bg-black shadow;
+  }
+  
+  .header-inner {
+    @apply max-w-7xl mx-auto px-4 py-4 flex justify-between items-center;
+  }
+  
+  .logo {
+    @apply text-4xl font-bold text-orange-600;
+    text-shadow: 0 0 6px rgba(234, 88, 12, 0.5),
+    0 0 12px rgba(234, 88, 12, 0.4),
+    0 0 18px rgba(234, 88, 12, 0.2);
+
+  }
+  
+  .nav-list {
+    @apply flex space-x-6 font-medium text-gray-700 dark:text-gray-100;
+  }
+  
+  .nav-link {
+    @apply hover:text-blue-500 transition-colors;
+  }
+  
+  .nav-link.active {
+    background-color: #ea580c; /* หรือใส่ gradient ตามต้องการ */
+    color: white;
+    border-radius: 8px; /* หรือ 0.5rem ก็ได้ */
+    padding: 10px 12px;
+  }
+  
+  
