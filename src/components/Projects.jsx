@@ -406,7 +406,227 @@ function Projects() {
         </Card>
       </motion.div>
 
-      {/* Project 2: LINE AI IT Support */}
+      {/* Project 2: GCP DevOps with K3s */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
+        className="mb-8 sm:mb-10"
+      >
+        <Card className="w-full overflow-hidden">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            <div>
+              <div className="flex items-center gap-2 flex-wrap mb-3">
+                <span
+                  className="chip"
+                  style={{
+                    background: "var(--accent-soft)",
+                    color: "var(--accent)",
+                    border: "1px solid color-mix(in srgb, var(--accent) 24%, transparent)",
+                  }}
+                >
+                  <FaAws size={14} />
+                  Cloud Infrastructure
+                </span>
+                <span
+                  className="chip"
+                  style={{
+                    background: "var(--warning-soft)",
+                    color: "var(--warning)",
+                    border: "1px solid color-mix(in srgb, var(--warning) 24%, transparent)",
+                  }}
+                >
+                  <span className="h-2 w-2 rounded-full" style={{ background: "var(--warning)" }} />
+                  Learning Project
+                </span>
+              </div>
+              <h3
+                className="text-2xl sm:text-3xl font-bold section-heading"
+                style={{ color: "var(--text-primary)" }}
+              >
+                Google Cloud DevOps: Full Stack Infrastructure & CI/CD with K3s
+              </h3>
+              <p className="text-sm sm:text-base mt-2" style={{ color: "var(--text-secondary)" }}>
+                ระบบ Infrastructure แบบครบวงจร Deploy Vue.js บน Kubernetes (K3s) ด้วย CI/CD Pipeline
+              </p>
+            </div>
+          </div>
+
+          {/* Overview */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="fine-panel p-4 sm:p-5 mb-6"
+          >
+            <h4
+              className="font-bold mb-3 flex items-center gap-3"
+              style={{ color: "var(--text-primary)" }}
+            >
+              <span className="icon-frame h-9 w-9">
+                <FaServer size={17} />
+              </span>
+              ภาพรวมโปรเจค
+            </h4>
+            <p className="text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>
+              โปรเจคการสร้างระบบ DevOps ที่สมบูรณ์แบบ รวม Infrastructure as Code (Terraform),
+              Configuration Management (Ansible), Container Orchestration (K3s),
+              และ CI/CD Pipeline (GitHub Actions) เพื่อให้สามารถ Deploy Vue.js Application อย่างอัตโนมัติและปลอดภัย
+            </p>
+          </motion.div>
+
+          {/* Architecture */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="mb-6"
+          >
+            <h4
+              className="font-bold mb-4 flex items-center gap-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              <span className="icon-frame h-9 w-9">
+                <MdAutoFixHigh size={18} />
+              </span>
+              สถาปัตยกรรมและองค์ประกอบ
+            </h4>
+            <div className="space-y-2 mb-6">
+              {[
+                "GCP Compute Engine (e2-medium): Virtual machine ที่รันบน Google Cloud Platform",
+                "Kubernetes (K3s): Lightweight Kubernetes distribution สำหรับ Container Orchestration",
+                "Docker: Multi-stage build สำหรับ Vue.js + Nginx image ที่เล็กและปลอดภัย",
+                "Traefik Ingress Controller: Automatic routing และ load balancing",
+                "Terraform: Infrastructure as Code สำหรับ GCP resources",
+                "Ansible: Configuration Management สำหรับ Setup และ Provisioning",
+                "GitHub Actions: CI/CD Pipeline พร้อม Self-hosted Runner",
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-3">
+                  <span
+                    className="text-sm mt-1 flex-shrink-0 font-bold"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    ◆
+                  </span>
+                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Features */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mb-6"
+          >
+            <h4
+              className="font-bold mb-4 flex items-center gap-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              <span className="icon-frame h-9 w-9">
+                <MdSpeed size={18} />
+              </span>
+              คุณสมบัติหลัก
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              {[
+                {
+                  icon: <FaDocker size={20} />,
+                  title: "Multi-stage Docker Build",
+                  desc: "สร้าง Image ที่ optimize สำหรับ Production",
+                },
+                {
+                  icon: <SiKubernetes size={20} />,
+                  title: "K3s Orchestration",
+                  desc: "Lightweight Kubernetes สำหรับ Easy Deployment",
+                },
+                {
+                  icon: <FaGitAlt size={20} />,
+                  title: "Automated CI/CD",
+                  desc: "GitHub Actions + Self-hosted Runner สำหรับ Auto Deploy",
+                },
+                {
+                  icon: <FaServer size={20} />,
+                  title: "Infrastructure as Code",
+                  desc: "Terraform + Ansible สำหรับ Version-controlled Setup",
+                },
+              ].map((feature, idx) => (
+                <div key={idx} className="fine-panel p-4">
+                  <div className="flex items-start gap-3">
+                    <div
+                      className="icon-frame w-10 h-10"
+                      style={{ background: "var(--accent-soft)" }}
+                    >
+                      <span style={{ color: "var(--accent)" }}>{feature.icon}</span>
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-sm" style={{ color: "var(--text-primary)" }}>
+                        {feature.title}
+                      </h5>
+                      <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+                        {feature.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Tech Stack */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            viewport={{ once: true }}
+          >
+            <h4
+              className="font-bold mb-4 flex items-center gap-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              <span className="icon-frame h-9 w-9">
+                <FaDatabase size={18} />
+              </span>
+              Technology Stack
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Terraform",
+                "Ansible",
+                "Docker",
+                "K3s",
+                "Kubernetes",
+                "GitHub Actions",
+                "GHCR",
+                "Vue.js",
+                "Vite",
+                "Nginx",
+                "Traefik",
+                "GCP",
+                "Linux",
+              ].map((tech, idx) => (
+                <span
+                  key={idx}
+                  className="fine-panel px-3 py-1.5 text-xs sm:text-sm font-medium"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        </Card>
+      </motion.div>
+
+      {/* Project 3: LINE AI IT Support */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
