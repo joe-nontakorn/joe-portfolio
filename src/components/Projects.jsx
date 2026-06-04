@@ -8,13 +8,13 @@ import {
   FaDatabase,
   FaDocker,
   FaGitAlt,
-  FaAws,
 } from "react-icons/fa";
 import {
   SiKubernetes,
   SiGitlab,
   SiPrometheus,
   SiGrafana,
+  SiGoogle,
 } from "react-icons/si";
 import {
   MdMonitor,
@@ -426,7 +426,7 @@ function Projects() {
                     border: "1px solid color-mix(in srgb, var(--accent) 24%, transparent)",
                   }}
                 >
-                  <FaAws size={14} />
+                  <SiGoogle size={14} />
                   Cloud Infrastructure
                 </span>
                 <span
