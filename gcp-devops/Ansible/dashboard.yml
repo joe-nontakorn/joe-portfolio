@@ -1,0 +1,100 @@
+---
+- name: Install Kubernetes Dashboard
+  hosts: servers
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Add Kubernetes Dashboard Helm repository
+      shell: |
+        kubectl repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+        kubectl repo update
+      environment:
+        KUBECONFIG: /home/{{ ansible_user_id }}/.kube/config
+      become_user: "{{ ansible_user_id }}"
+      ignore_errors: yes
+
+    - name: Create kubernetes-dashboard namespace
+      shell: |
+        kubectl create namespace kubernetes-dashboard --dry-run=client -o yaml | kubectl apply -f -
+      environment:
+        KUBECONFIG: /home/{{ ansible_user_id }}/.kube/config
+      become_user: "{{ ansible_user_id }}"
+
+    - name: Install Kubernetes Dashboard
+      shell: |
+        kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+      environment:
+        KUBECONFIG: /home/{{ ansible_user_id }}/.kube/config
+      become_user: "{{ ansible_user_id }}"
+
+    - name: Create admin-user ServiceAccount
+      shell: |
+        cat <<EOF | kubectl apply -f -
+        apiVersion: v1
+        kind: ServiceAccount
+        metadata:
+          name: admin-user
+          namespace: kubernetes-dashboard
+        EOF
+      environment:
+        KUBECONFIG: /home/{{ ansible_user_id }}/.kube/config
+      become_user: "{{ ansible_user_id }}"
+
+    - name: Create admin-user ClusterRoleBinding
+      shell: |
+        cat <<EOF | kubectl apply -f -
+        apiVersion: rbac.authorization.k8s.io/v1
+        kind: ClusterRoleBinding
+        metadata:
+          name: admin-user
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: cluster-admin
+        subjects:
+        - kind: ServiceAccount
+          name: admin-user
+          namespace: kubernetes-dashboard
+        EOF
+      environment:
+        KUBECONFIG: /home/{{ ansible_user_id }}/.kube/config
+      become_user: "{{ ansible_user_id }}"
+
+    - name: Create NodePort service for Dashboard
+      shell: |
+        cat <<EOF | kubectl apply -f -
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: kubernetes-dashboard-nodeport
+          namespace: kubernetes-dashboard
+        spec:
+          type: NodePort
+          selector:
+            k8s-app: kubernetes-dashboard
+          ports:
+            - protocol: TCP
+              port: 443
+              targetPort: 8443
+              nodePort: 30001
+        EOF
+      environment:
+        KUBECONFIG: /home/{{ ansible_user_id }}/.kube/config
+      become_user: "{{ ansible_user_id }}"
+
+    - name: Wait for dashboard to be ready
+      shell: |
+        kubectl rollout status deployment/kubernetes-dashboard -n kubernetes-dashboard --timeout=300s
+      environment:
+        KUBECONFIG: /home/{{ ansible_user_id }}/.kube/config
+      become_user: "{{ ansible_user_id }}"
+
+    - name: Display dashboard access instructions
+      debug:
+        msg: |
+          Kubernetes Dashboard is now available at:
+          https://{{ inventory_hostname }}:30001
+
+          To get the login token, run:
+          kubectl -n kubernetes-dashboard create token admin-user

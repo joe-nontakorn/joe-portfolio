@@ -1,0 +1,90 @@
+---
+- name: Setup K3s Kubernetes Cluster
+  hosts: servers
+  become: yes
+  gather_facts: yes
+
+  vars:
+    k3s_version: latest
+
+  tasks:
+    - name: Update system packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Install required system packages
+      apt:
+        name:
+          - curl
+          - wget
+          - vim
+          - git
+          - htop
+          - net-tools
+          - ca-certificates
+          - gnupg
+          - lsb-release
+        state: present
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Install Docker
+      shell: |
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sh get-docker.sh
+      args:
+        creates: /usr/bin/docker
+
+    - name: Start and enable Docker
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add current user to docker group
+      user:
+        name: "{{ ansible_user_id }}"
+        groups: docker
+        append: yes
+
+    - name: Install K3s
+      shell: |
+        curl -sfL https://get.k3s.io | sh -s - --docker
+      args:
+        creates: /usr/local/bin/k3s
+
+    - name: Wait for K3s to be ready
+      wait_for:
+        host: localhost
+        port: 6443
+        delay: 10
+        timeout: 300
+
+    - name: Create .kube directory
+      file:
+        path: /home/{{ ansible_user_id }}/.kube
+        state: directory
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+        mode: '0755'
+
+    - name: Copy K3s config to user
+      copy:
+        src: /etc/rancher/k3s/k3s.yaml
+        dest: /home/{{ ansible_user_id }}/.kube/config
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+        mode: '0600'
+        remote_src: yes
+
+    - name: Verify K3s installation
+      command: kubectl get nodes
+      environment:
+        KUBECONFIG: /home/{{ ansible_user_id }}/.kube/config
+      become_user: "{{ ansible_user_id }}"
+      register: k3s_nodes
+
+    - name: Display K3s nodes
+      debug:
+        msg: "{{ k3s_nodes.stdout }}"

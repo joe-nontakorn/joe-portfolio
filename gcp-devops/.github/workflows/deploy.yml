@@ -1,0 +1,132 @@
+name: Build and Deploy to K3s
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'Dockerfile'
+      - 'nginx.conf'
+      - 'package.json'
+      - 'vite.config.ts'
+      - 'index.html'
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository_owner }}/gcp-devops
+
+jobs:
+  build-and-push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./gcp-devops
+          file: ./gcp-devops/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
+
+      - name: Upload image digest
+        run: echo "${{ steps.docker_build.outputs.digest }}" > image_digest.txt
+
+  deploy:
+    name: Deploy to K3s
+    needs: build-and-push
+    runs-on: [self-hosted, k3s]
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Update kubectl config
+        run: |
+          mkdir -p $HOME/.kube
+          sudo cp /etc/rancher/k3s/k3s.yaml $HOME/.kube/config
+          sudo chown $(id -u):$(id -g) $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
+      - name: Update Kubernetes deployment
+        run: |
+          cd gcp-devops/k8s
+          sed -i "s|YOUR_GITHUB_USERNAME|${{ github.actor }}|g" deployment.yml
+          sed -i "s|YOUR_DOMAIN_OR_IP|${HOSTNAME}|g" deployment.yml
+          kubectl apply -f deployment.yml
+
+      - name: Wait for rollout to complete
+        run: |
+          kubectl rollout status deployment/vue-app -n vue-app --timeout=5m
+
+      - name: Verify deployment
+        run: |
+          echo "Deployment Status:"
+          kubectl get deployments -n vue-app
+          echo ""
+          echo "Pod Status:"
+          kubectl get pods -n vue-app
+          echo ""
+          echo "Service Status:"
+          kubectl get svc -n vue-app
+
+      - name: Check application health
+        run: |
+          EXTERNAL_IP=$(kubectl get svc -n vue-app vue-app-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+          echo "Waiting for application to be healthy..."
+          for i in {1..30}; do
+            if curl -f http://${EXTERNAL_IP:-localhost}/health; then
+              echo "Application is healthy!"
+              exit 0
+            fi
+            echo "Attempt $i/30: Application not ready yet..."
+            sleep 10
+          done
+          echo "Application failed to become healthy"
+          exit 1
+
+      - name: Deployment summary
+        if: always()
+        run: |
+          echo "### Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "**Image**: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment**: vue-app" >> $GITHUB_STEP_SUMMARY
+          echo "**Namespace**: vue-app" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Current Pods**:" >> $GITHUB_STEP_SUMMARY
+          kubectl get pods -n vue-app >> $GITHUB_STEP_SUMMARY || echo "Failed to get pods" >> $GITHUB_STEP_SUMMARY
+
+      - name: Send Slack notification
+        if: always()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          text: 'Deployment to K3s ${{ job.status }}'
+          webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+          fields: repo,message,commit,author
+        continue-on-error: true

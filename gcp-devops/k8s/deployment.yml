@@ -1,0 +1,149 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vue-app
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ghcr-secret
+  namespace: vue-app
+type: kubernetes.io/dockercfg
+data:
+  .dockercfg: eyJnaGNyLmlvIjp7InVzZXJuYW1lIjoiVFlQRSBZT1VSX0dJVEhVQl9VU0VSTkFNRSIsInBhc3N3b3JkIjoiVFlQRSBZT1VSX0dIQ1JfUEFUIiwiYXV0aCI6ImJhc2U2NC1lbmNvZGVkLWNyZWRlbnRpYWxzIn19
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vue-app
+  namespace: vue-app
+  labels:
+    app: vue-app
+    version: v1
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: vue-app
+  template:
+    metadata:
+      labels:
+        app: vue-app
+        version: v1
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+      - name: vue-app
+        image: ghcr.io/YOUR_GITHUB_USERNAME/gcp-devops:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 101
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+        volumeMounts:
+        - name: cache
+          mountPath: /var/cache/nginx
+        - name: run
+          mountPath: /var/run
+      volumes:
+      - name: cache
+        emptyDir: {}
+      - name: run
+        emptyDir: {}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - vue-app
+              topologyKey: kubernetes.io/hostname
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vue-app-service
+  namespace: vue-app
+  labels:
+    app: vue-app
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: http
+    protocol: TCP
+    name: http
+  selector:
+    app: vue-app
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vue-app-ingress
+  namespace: vue-app
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  rules:
+  - host: "YOUR_DOMAIN_OR_IP"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: vue-app-service
+            port:
+              number: 80
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: vue-app-pdb
+  namespace: vue-app
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: vue-app
