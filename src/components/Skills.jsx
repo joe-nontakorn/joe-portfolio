@@ -42,6 +42,9 @@ import terraform from "../assets/icons/icons8-terraform-48.png";
 import gpt from "../assets/icons/chatgpt.png";
 import claude from "../assets/icons/claudecode-color.svg";
 import gemini from "../assets/icons/icons8-gemini-ai-94.png";
+import nextjs from "../assets/icons/icons8-nextjs-48.png";
+import nestjs from "../assets/icons/icons8-nestjs-48.png";
+
 function Skills() {
   const categories = [
     {
@@ -60,6 +63,7 @@ function Skills() {
         { name: "CSS", img: css },
         { name: "React", img: react },
         { name: "Vue", img: vue },
+        { name: "Next.js", img: nextjs },
       ],
     },
     {
@@ -68,6 +72,7 @@ function Skills() {
         { name: "Node.js", img: nodejs },
         { name: "Bun", img: bun },
         { name: "ElysiaJS", img: elysia },
+        { name: "NestJS", img: nestjs },
       ],
     },
     {

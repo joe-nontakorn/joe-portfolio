@@ -20,7 +20,7 @@ import Card from "./Card";
 
 function Home() {
   const profileDetails = [
-    { icon: <FiCalendar size={17} />, label: "Age", value: "28" },
+    { icon: <FiCalendar size={17} />, label: "Age", value: "29" },
     { icon: <FiGlobe size={17} />, label: "Nationality", value: "Thai" },
     {
       icon: <FiPhone size={17} />,
