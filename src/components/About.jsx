@@ -29,24 +29,13 @@ function About() {
         {
           title: "ระบบเครือข่าย & IoT",
           items: [
-            "พัฒนาและดูแลระบบเครือข่าย (Network Systems)",
-            "ติดตั้งและตั้งค่า CCTV, Switch, Modbus Gateway และอุปกรณ์ IoT",
-            "ควบคุมและตรวจสอบระบบผ่าน Modbus และระบบ Monitoring",
-          ],
-        },
-        {
-          title: "การพัฒนาซอฟต์แวร์",
-          items: [
-            "เขียนสคริปต์/โค้ด (Scripts/Code) สำหรับระบบเครือข่าย",
-            "พัฒนา Web Application ตามความต้องการ",
-            "มอนิเตอร์ระบบด้วย Grafana และ Zabbix",
-          ],
-        },
-        {
-          title: "การสนับสนุนและบำรุงรักษา",
-          items: [
-            "ให้การสนับสนุนผู้ใช้งาน (User Support) และแก้ไขปัญหา IT",
-            "บำรุงรักษา Hardware และ Software",
+            "ออกแบบและพัฒนา REST API และ Microservices โดยใช้ Node.js/Bun สำหรับระบบเว็บแอปพลิเคชันภายในองค์กรมากกว่า 10 ระบบที่ใช้งานจริงในสภาพแวดล้อม Production",
+            "สร้างและจัดการ CI/CD Pipeline แบบครบวงจรด้วย GitLab CI/CD และ Docker บน Linux Server — ครอบคลุมกระบวนการ Build, Test และ Deploy โดยอัตโนมัติทั้งหมด",
+            "จัดเตรียมและกำหนดค่าโครงสร้างพื้นฐาน Linux Server รวมถึงการตั้งค่า Nginx Reverse Proxy สำหรับสภาพแวดล้อม Development, Staging และ Production",
+            "เชื่อมต่ออุปกรณ์เครือข่ายแบบ Multi-Protocol (Modbus, SNMP, MQTT) เข้ากับ Backend สำหรับการตรวจสอบแบบรวมศูนย์ และดูแลการมองเห็นสถานะระบบด้วย Grafana และ Zabbix",
+            "กำหนดค่า MongoDB Replication เพื่อรองรับ High Availability และ Disaster Recovery ในสภาพแวดล้อม Production",
+            "พัฒนาระบบแจ้งเตือนอัตโนมัติผ่าน Line และ MS Teams สำหรับการตรวจจับความผิดปกติและการตอบสนองต่อเหตุการณ์ที่เกิดขึ้น",
+            "ให้การสนับสนุนด้าน IT และแก้ไขปัญหาทั้งด้าน Hardware และ Software แก่ผู้ใช้งานทั่วทั้งองค์กร",
           ],
         },
       ],
